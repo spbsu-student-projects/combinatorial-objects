@@ -29,6 +29,7 @@ public:
 	vector <int> object_by_number (int n, int64_t k);
 	bool prev (vector <int> & v);
 	bool next (vector <int> & v);
+	~FibonacciString () {}
 };
 
 int64_t FibonacciString::total (int n)

@@ -116,10 +116,3 @@ void CombinatorialObject::interact (istream & in_stream, ostream & out_stream)
 		}
 	}
 }
-
-int main (void)
-{
-	CombinatorialObject * calculator = getCombinatorialObject ();
-	calculator -> interact ();
-	return 0;
-}

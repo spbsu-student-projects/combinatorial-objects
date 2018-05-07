@@ -1,6 +1,6 @@
 // Author: Ivan Kazmenko (gassa@mail.ru)
-#ifndef __COMB_OBJ_H__
-#define __COMB_OBJ_H__
+#ifndef __COMBINATORIAL_OBJECT_H__
+#define __COMBINATORIAL_OBJECT_H__
 #include <cstdint>
 #include <iostream>
 #include <vector>
@@ -48,7 +48,8 @@ public:
 
 	/// interact with in_stream and out_stream
 	void interact (istream & in_stream = cin, ostream & out_stream = cout);
-};
 
-CombinatorialObject * getCombinatorialObject (void);
-#endif // __COMB_OBJ_H__
+	/// virtual destructor
+	virtual ~CombinatorialObject () {};
+};
+#endif // __COMBINATORIAL_OBJECT_H__
