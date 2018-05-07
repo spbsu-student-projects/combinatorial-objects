@@ -145,9 +145,7 @@ bool FibonacciString::next (vector <int> & v)
 
 vector <int64_t> FibonacciString::f = init_f ();
 
-int main (void)
+CombinatorialObject * getCombinatorialObject (void)
 {
-	FibonacciString calculator;
-	calculator.interact ();
-	return 0;
+	return new FibonacciString ();
 }

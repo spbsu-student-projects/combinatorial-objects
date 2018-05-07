@@ -70,6 +70,13 @@ void CombinatorialObject::interact (istream & in_stream, ostream & out_stream)
 		}
 		else if (cmd == "generate_all" || cmd == "generate")
 		{
+			int n;
+			in_stream >> n;
+			auto res = generate_all (n);
+			for (auto v : res)
+			{
+				print (v, out_stream);
+			}
 		}
 		else if (cmd == "number_by_object" || cmd == "number")
 		{
@@ -108,4 +115,11 @@ void CombinatorialObject::interact (istream & in_stream, ostream & out_stream)
 			out_stream << "unknown command: " << cmd << std::endl;
 		}
 	}
+}
+
+int main (void)
+{
+	CombinatorialObject * calculator = getCombinatorialObject ();
+	calculator -> interact ();
+	return 0;
 }

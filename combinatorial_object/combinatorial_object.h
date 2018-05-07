@@ -49,4 +49,6 @@ public:
 	/// interact with in_stream and out_stream
 	void interact (istream & in_stream = cin, ostream & out_stream = cout);
 };
+
+CombinatorialObject * getCombinatorialObject (void);
 #endif // __COMB_OBJ_H__
