@@ -1,9 +1,9 @@
 *Строка Фибоначчи* длины n &mdash; это строка из n цифр,
 каждая из которых равна 0 или 1, и в которой нет двух единиц подряд.
 
-Автор: Иван Казменко
+Автор: Иван Казменко.
 
-OEIS: [A000045](https://oeis.org/A000045)
+OEIS: [A000045](https://oeis.org/A000045).
 
 Ссылки:
 [MathWorld](http://mathworld.wolfram.com/FibonacciNumber.html),
