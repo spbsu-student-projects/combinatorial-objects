@@ -13,7 +13,7 @@ struct GenerateHelper
 	int n;
 	vector <int> cur;
 
-	GenerateHelper (int n) : n (n), cur (vector <int> (n)) {}
+	GenerateHelper (int n) : n (n), cur (n) {}
 
 	void generate_recur (int k)
 	{
