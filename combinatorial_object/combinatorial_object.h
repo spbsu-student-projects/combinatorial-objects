@@ -5,9 +5,9 @@
 #include <iostream>
 #include <vector>
 
+using std::vector;
 using std::istream;
 using std::ostream;
-using std::vector;
 using std::cin;
 using std::cout;
 
@@ -50,6 +50,6 @@ public:
 	void interact (istream & in_stream = cin, ostream & out_stream = cout);
 
 	/// virtual destructor
-	virtual ~CombinatorialObject () {};
+	virtual ~CombinatorialObject ();
 };
 #endif // __COMBINATORIAL_OBJECT_H__

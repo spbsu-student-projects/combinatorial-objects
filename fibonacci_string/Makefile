@@ -1,7 +1,7 @@
-name = FibonacciString
+name = fibonacci_string
+sources = $(name).cpp runner.cpp $(incpath)/combinatorial_object.cpp
 incpath = ../combinatorial_object
-sources = fibonacci_string.cpp $(incpath)/combinatorial_object.cpp $(incpath)/runner.cpp
-headers = $(incpath)/combinatorial_object.h $(incpath)/runner.h
+headers = $(name).h $(incpath)/combinatorial_object.h
 
 $(name): $(sources) $(headers)
 	g++ -I$(incpath) --std=c++11 -Wall $(sources) -o $(name)

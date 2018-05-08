@@ -1,9 +1,9 @@
 // Author: Ivan Kazmenko (gassa@mail.ru)
-#include "runner.h"
+#include "fibonacci_string.h"
 
-int main (void)
+int main ()
 {
-	CombinatorialObject * calculator = getCombinatorialObject ();
+	CombinatorialObject * calculator = new FibonacciString ();
 	calculator -> interact ();
 	delete calculator;
 	return 0;

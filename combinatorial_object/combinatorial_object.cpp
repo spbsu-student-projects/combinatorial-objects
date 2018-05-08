@@ -116,3 +116,7 @@ void CombinatorialObject::interact (istream & in_stream, ostream & out_stream)
 		}
 	}
 }
+
+CombinatorialObject::~CombinatorialObject ()
+{
+}

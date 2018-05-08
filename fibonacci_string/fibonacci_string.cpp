@@ -1,36 +1,6 @@
 // Author: Ivan Kazmenko (gassa@mail.ru)
 #include <cassert>
-#include "combinatorial_object.h"
-
-vector <int64_t> init_f (void)
-{
-	vector <int64_t> f;
-	f.push_back (1);
-	f.push_back (2);
-	while (true)
-	{
-		int64_t v = f[f.size () - 1] + f[f.size () - 2];
-		if (v < f[f.size () - 1])  // overflow
-		{
-			return f;
-		}
-		f.push_back (v);
-	}
-}
-
-class FibonacciString : public CombinatorialObject
-{
-	static vector <int64_t> f;  // number of Fibonacci strings
-
-public:
-	int64_t total (int n);
-	vector <vector <int> > generate_all (int n);
-	int64_t number_by_object (vector <int> const & v);
-	vector <int> object_by_number (int n, int64_t k);
-	bool prev (vector <int> & v);
-	bool next (vector <int> & v);
-	~FibonacciString () {}
-};
+#include "fibonacci_string.h"
 
 int64_t FibonacciString::total (int n)
 {
@@ -144,9 +114,24 @@ bool FibonacciString::next (vector <int> & v)
 	return (k >= 0);
 }
 
-vector <int64_t> FibonacciString::f = init_f ();
-
-CombinatorialObject * getCombinatorialObject (void)
+FibonacciString::~FibonacciString ()
 {
-	return new FibonacciString ();
 }
+
+vector <int64_t> init_f ()
+{
+	vector <int64_t> f;
+	f.push_back (1);
+	f.push_back (2);
+	while (true)
+	{
+		int64_t v = f[f.size () - 1] + f[f.size () - 2];
+		if (v < f[f.size () - 1])  // overflow
+		{
+			return f;
+		}
+		f.push_back (v);
+	}
+}
+
+vector <int64_t> FibonacciString::f = init_f ();
