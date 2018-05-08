@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 
+using std::string;
 using std::vector;
 using std::istream;
 using std::ostream;
@@ -19,7 +20,11 @@ public:
 	virtual int64_t total (int n) = 0;
 
 	/// lexicographically sorted vector of all objects of length n
+	/// undefined if negative
 	virtual vector <vector <int> > generate_all (int n) = 0;
+
+	/// validity of given object
+	virtual bool is_valid (vector <int> const & v) = 0;
 
 	/// 0-based lexicographical number of given object,
 	/// undefined if not a valid object or overflow
@@ -48,6 +53,9 @@ public:
 
 	/// interact with in_stream and out_stream
 	void interact (istream & in_stream = cin, ostream & out_stream = cout);
+
+	/// name of combinatorial object
+	virtual string name () = 0;
 
 	/// virtual destructor
 	virtual ~CombinatorialObject ();

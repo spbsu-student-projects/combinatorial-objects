@@ -2,6 +2,11 @@
 #include <cassert>
 #include "fibonacci_string.h"
 
+string FibonacciString::name ()
+{
+	return "FibonacciString";
+}
+
 int64_t FibonacciString::total (int n)
 {
 	return (0 <= n && n < (int) (f.size ())) ? f[n] : INT64_MAX;
@@ -37,6 +42,23 @@ vector <vector <int> > FibonacciString::generate_all (int n)
 	GenerateHelper gen (n);
 	gen.generate_recur (0);
 	return gen.res;
+}
+
+bool FibonacciString::is_valid (vector <int> const & v)
+{
+	auto n = (int) (v.size ());
+	for (int i = 0; i < n; i++)
+	{
+		if (v[i] != 0 && v[i] != 1)
+		{
+			return false;
+		}
+		if (i > 0 && v[i - 1] == 1 && v[i] == 1)
+		{
+			return false;
+		}
+	}
+	return true;
 }
 
 int64_t FibonacciString::number_by_object (vector <int> const & v)
