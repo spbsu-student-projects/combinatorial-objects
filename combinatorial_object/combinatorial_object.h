@@ -26,19 +26,19 @@ public:
 	/// validity of given object
 	virtual bool is_valid (vector <int> const & v) = 0;
 
-	/// 0-based lexicographical number of given object,
-	/// undefined if not a valid object or overflow
+	/// 0-based lexicographical number of given valid object,
+	/// undefined if overflow
 	virtual int64_t number_by_object (vector <int> const & v) = 0;
 
 	/// object of length n with given 0-based lexicographical number,
 	/// undefined if out of bounds
 	virtual vector <int> object_by_number (int n, int64_t k) = 0;
 
-	/// transform to lexicographically previous object,
+	/// transform valid object to lexicographically previous object,
 	/// true if successful, false and undefined state if was first
 	virtual bool prev (vector <int> & v) = 0;
 
-	/// transform to lexicographically next object,
+	/// transform valid object to lexicographically next object,
 	/// true if successful, false and undefined state if was last
 	virtual bool next (vector <int> & v) = 0;
 

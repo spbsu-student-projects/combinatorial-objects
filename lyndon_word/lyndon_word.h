@@ -16,19 +16,19 @@ public:
 	/// validity of given object
 	bool is_valid (vector <int> const & v);
 
-	/// 0-based lexicographical number of given object,
-	/// undefined if not a valid object or overflow
+	/// 0-based lexicographical number of given valid object,
+	/// undefined if overflow
 	int64_t number_by_object (vector <int> const & v);
 
 	/// object of length n with given 0-based lexicographical number,
 	/// undefined if out of bounds
 	vector <int> object_by_number (int n, int64_t k);
 
-	/// transform to lexicographically previous object,
+	/// transform valid object to lexicographically previous object,
 	/// true if successful, false and undefined state if was first
 	bool prev (vector <int> & v);
 
-	/// transform to lexicographically next object,
+	/// transform valid object to lexicographically next object,
 	/// true if successful, false and undefined state if was last
 	bool next (vector <int> & v);
 

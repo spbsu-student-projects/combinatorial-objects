@@ -39,6 +39,10 @@ struct GenerateHelper
 
 vector <vector <int> > FibonacciString::generate_all (int n)
 {
+	if (n < 0)
+	{
+		return vector <vector <int> > ();
+	}
 	GenerateHelper gen (n);
 	gen.generate_recur (0);
 	return gen.res;
