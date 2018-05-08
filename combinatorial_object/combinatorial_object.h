@@ -16,7 +16,7 @@ class CombinatorialObject
 {
 public:
 	/// total number of objects of length n,
-	/// undefined if overflow
+	/// undefined if negative or overflow
 	virtual int64_t total (int n) = 0;
 
 	/// lexicographically sorted vector of all objects of length n

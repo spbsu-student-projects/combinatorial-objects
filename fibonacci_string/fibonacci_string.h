@@ -8,7 +8,7 @@ class FibonacciString : public CombinatorialObject
 
 public:
 	/// total number of objects of length n,
-	/// INT64_MAX if overflow
+	/// INT64_MAX if negative or overflow
 	int64_t total (int n);
 
 	/// lexicographically sorted vector of all objects of length n
