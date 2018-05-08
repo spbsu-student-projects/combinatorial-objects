@@ -1,6 +1,6 @@
 // Author: Ivan Kazmenko (gassa@mail.ru)
-#ifndef __FIBONACC_STRING_H__
-#define __FIBONACC_STRING_H__
+#ifndef __FIBONACCI_STRING_H__
+#define __FIBONACCI_STRING_H__
 #include "combinatorial_object.h"
 class FibonacciString : public CombinatorialObject
 {
@@ -15,4 +15,4 @@ public:
 	bool next (vector <int> & v);
 	~FibonacciString ();
 };
-#endif // __FIBONACC_STRING_H__
+#endif // __FIBONACCI_STRING_H__
