@@ -1,0 +1,28 @@
+readme.links     Иван Казменко
+total.ok         Иван Казменко
+total.poly
+total.opt
+total.corner
+generate.ok      Иван Казменко
+generate.opt
+generate.corner
+valid.ok         Иван Казменко
+valid.bug
+valid.poly       Иван Казменко
+valid.opt
+number.ok        Иван Казменко
+number.poly
+number.opt
+number.corner
+object.ok        Иван Казменко
+object.poly
+object.opt
+object.corner
+prev.ok          Иван Казменко
+prev.poly
+prev.opt
+prev.corner
+next.ok          Иван Казменко
+next.poly
+next.opt
+next.corner
