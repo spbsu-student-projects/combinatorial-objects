@@ -161,7 +161,8 @@ https://github.com/spbsu-student-projects/combinatorial-objects.
 
 Всё взаимодействие, связанное с оценкой, осуществляется
 через интерфейс GitHub.
-Вопросы также можно задать в [issues](/issues).
+Вопросы также можно задать в
+[issues](https://github.com/spbsu-student-projects/combinatorial-objects/issues).
 Все pull request-ы проверяются в порядке их создания.
 
 За выполнение частей задания начисляются баллы.
