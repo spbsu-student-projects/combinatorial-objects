@@ -98,7 +98,7 @@ bool LyndonWord::next (vector <int> & v)
 {
 	auto n = (int) (v.size ());
 	auto k = number_by_object (v);
-	if (k + 1 == (int64_t) (v.size ()))
+	if (k + 1 == total (n))
 	{
 		return false;
 	}
