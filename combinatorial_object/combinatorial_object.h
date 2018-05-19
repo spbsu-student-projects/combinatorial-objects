@@ -1,6 +1,6 @@
 // Author: Ivan Kazmenko (gassa@mail.ru)
-#ifndef __COMBINATORIAL_OBJECT_H__
-#define __COMBINATORIAL_OBJECT_H__
+#ifndef COMBINATORIAL_OBJECT_H_
+#define COMBINATORIAL_OBJECT_H_
 #include <cstdint>
 #include <iostream>
 #include <vector>
@@ -60,4 +60,4 @@ public:
 	/// virtual destructor
 	virtual ~CombinatorialObject ();
 };
-#endif // __COMBINATORIAL_OBJECT_H__
+#endif // COMBINATORIAL_OBJECT_H_

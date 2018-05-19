@@ -1,6 +1,6 @@
 // Author: Ivan Kazmenko (gassa@mail.ru)
-#ifndef __LYNDON_WORD_H__
-#define __LYNDON_WORD_H__
+#ifndef LYNDON_WORD_H_
+#define LYNDON_WORD_H_
 #include "combinatorial_object.h"
 class LyndonWord : public CombinatorialObject
 {
@@ -38,4 +38,4 @@ public:
 	/// destructor
 	~LyndonWord ();
 };
-#endif // __LYNDON_WORD_H__
+#endif // LYNDON_WORD_H_
