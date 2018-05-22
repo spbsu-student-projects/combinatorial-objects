@@ -1,5 +1,6 @@
 // Author: Ivan Kazmenko (gassa@mail.ru)
 #include <cassert>
+#include <string>
 #include "combinatorial_object.h"
 
 void CombinatorialObject::check (int n)
