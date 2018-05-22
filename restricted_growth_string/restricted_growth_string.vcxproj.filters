@@ -21,7 +21,7 @@
     <ClCompile Include="runner.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\combinatorial_object\combinatorial_object.cpp">
+    <ClCompile Include="..\combinatorial_object\combinatorial_object.cpp">
       <Filter>Заголовочные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,7 +29,7 @@
     <ClInclude Include="restricted_growth_string.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\combinatorial_object\combinatorial_object.h">
+    <ClInclude Include="..\combinatorial_object\combinatorial_object.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
