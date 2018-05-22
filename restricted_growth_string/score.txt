@@ -19,9 +19,9 @@ object.opt       Михаил Иванов
 object.corner    Михаил Иванов
 prev.ok          Михаил Иванов
 prev.poly        Михаил Иванов
-prev.opt
+prev.opt         Михаил Иванов
 prev.corner      Михаил Иванов
 next.ok          Михаил Иванов
 next.poly        Михаил Иванов
-next.opt
+next.opt         Михаил Иванов
 next.corner      Михаил Иванов
