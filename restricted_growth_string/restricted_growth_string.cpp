@@ -79,7 +79,7 @@ vector<vector<int64_t>> initialize_d()
 		for (int j = 0; cautious; ++j)
 		{
 			int64_t temp = 0;
-			if (cautious = (((((int)d.size()) > i - 1) && (((int)d[i - 1].size()) >= (j + 2)) && cautious_multiplication(d[i - 1][j], j, temp)) && cautious_addition(temp, d[i - 1][j + 1], temp)))
+			if ((cautious = (((((int)d.size()) > i - 1) && (((int)d[i - 1].size()) >= (j + 2)) && cautious_multiplication(d[i - 1][j], j, temp)) && cautious_addition(temp, d[i - 1][j + 1], temp))))
 				d[i].push_back(temp);
 		}
 	}
