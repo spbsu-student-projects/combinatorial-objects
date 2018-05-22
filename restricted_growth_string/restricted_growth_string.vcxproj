@@ -66,12 +66,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\combinatorial_object\combinatorial_object.cpp" />
+    <ClCompile Include="..\combinatorial_object\combinatorial_object.cpp" />
     <ClCompile Include="restricted_growth_string.cpp" />
     <ClCompile Include="runner.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\combinatorial_object\combinatorial_object.h" />
+    <ClInclude Include="..\combinatorial_object\combinatorial_object.h" />
     <ClInclude Include="restricted_growth_string.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
