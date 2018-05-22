@@ -1,0 +1,27 @@
+readme.links     Михаил Иванов
+total.ok         Михаил Иванов
+total.poly       Михаил Иванов
+total.opt        Михаил Иванов
+total.corner     Михаил Иванов
+generate.ok      Михаил Иванов
+generate.opt     Михаил Иванов
+generate.corner  Михаил Иванов
+valid.ok         Михаил Иванов
+valid.poly       Михаил Иванов
+valid.opt        Михаил Иванов
+number.ok        Михаил Иванов
+number.poly      Михаил Иванов
+number.opt       Михаил Иванов
+number.corner    Михаил Иванов
+object.ok        Михаил Иванов
+object.poly      Михаил Иванов
+object.opt       Михаил Иванов
+object.corner    Михаил Иванов
+prev.ok          Михаил Иванов
+prev.poly        Михаил Иванов
+prev.opt
+prev.corner      Михаил Иванов
+next.ok          Михаил Иванов
+next.poly        Михаил Иванов
+next.opt
+next.corner      Михаил Иванов
