@@ -22,7 +22,7 @@
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
     <ClCompile Include="..\combinatorial_object\combinatorial_object.cpp">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
