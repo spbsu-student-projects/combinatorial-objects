@@ -128,53 +128,74 @@ vector<int> RestrictedGrowthString::object_by_number(int n, int64_t k)
 
 bool RestrictedGrowthString::prev(vector<int>& v)
 {
-	int p = -1, pm = -1, m = -1, n = v.size();
-	for (int i = 0; i < n; ++i)
+	int n = v.size();
+	if ((n >= 1) && (v.back()))
 	{
-		if (v[i])
-		{
-			p = i;
-			pm = m;
-		}
-		m = max(m, v[i]);
-	}
-	if (p == -1)
-	{
-		for (int i = 0; i < n; ++i)
-			v[i] = i;
-		return false;
+		--v.back();
+		return true;
 	}
 	else
 	{
-		--v[p];
-		pm -= p;
-		for (int i = p + 1; i < n; ++i)
-			v[i] = pm + i;
-		return true;
+		int p = -1, pm = -1, m = -1;
+		for (int i = 0; i < n; ++i)
+		{
+			if (v[i])
+			{
+				p = i;
+				pm = m;
+			}
+			m = max(m, v[i]);
+		}
+		if (p == -1)
+		{
+			for (int i = 0; i < n; ++i)
+				v[i] = i;
+			return false;
+		}
+		else
+		{
+			--v[p];
+			pm -= p;
+			for (int i = p + 1; i < n; ++i)
+				v[i] = pm + i;
+			return true;
+		}
+		return false;
 	}
-	return false;
 }
 
 bool RestrictedGrowthString::next(vector<int>& v)
 {
 	int p = -1, m = -1, n = v.size();
-	for (int i = 0; i < n; ++i)
-	{
-		if (v[i] <= m)
-			p = i;
-		m = max(m, v[i]);
-	}
-	if (p == -1)
-	{
-		v = vector<int>(n, 0);
+	if (n == 0)
 		return false;
+	int t;
+	for (t = n - 2; (t >= 0) && (v[t] < v.back()); --t);
+	if (t >= 0)
+	{
+		++v.back();
+		return true;
 	}
 	else
 	{
-		++v[p];
-		for (int i = p + 1; i < n; ++i)
-			v[i] = 0;
-		return true;
+		for (int i = 0; i < n; ++i)
+		{
+			if (v[i] <= m)
+				p = i;
+			m = max(m, v[i]);
+		}
+		if (p == -1)
+		{
+			v = vector<int>(n, 0);
+			return false;
+		}
+		else
+		{
+			++v[p];
+			for (int i = p + 1; i < n; ++i)
+				v[i] = 0;
+			return true;
+		}
 	}
 }
 
