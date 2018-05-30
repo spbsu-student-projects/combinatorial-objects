@@ -70,9 +70,9 @@ bool Derangement::is_valid (vector <int> const & v)
 
 int64_t Derangement::number_by_object (vector <int> const & v)
 {
-	auto n = (int)(v.size());
+	auto n = (int) (v.size ());
 	auto all = generate_all (n);
-	for (int i = 0; i < (int)(all.size()); i++)
+	for (int i = 0; i < (int) (all.size ()); i++)
 	{
 		if (v == all[i])
 			return i;
@@ -82,52 +82,34 @@ int64_t Derangement::number_by_object (vector <int> const & v)
 
 vector <int> Derangement::object_by_number (int n, int64_t k)
 {
-	auto all = generate_all(n);
-	return all[k];
+	auto all = generate_all (n);
+	return all[(int) (k)];
 }
 
 bool Derangement::prev (vector <int> & v)
 {
 	auto k = number_by_object (v);
-	auto n = (int)(v.size());
+	auto n = (int) (v.size ());
 	k -= 1;
 	bool res = (k >= 0);
-	if (!res) k += total(n);
-	auto all = generate_all(n);
-	v = all[k];
+	if (!res) k += total (n);
+	auto all = generate_all (n);
+	v = all[(int) (k)];
 	return res;
 }
 
 bool Derangement::next (vector <int> & v)
 {
-	auto k = number_by_object(v);
-	auto n = (int)(v.size());
+	auto k = number_by_object (v);
+	auto n = (int) (v.size ());
 	k += 1;
-	bool res = (k < total(n));
-	if (!res) k -= total(n);
-	auto all = generate_all(n);
-	v = all[k];
+	bool res = (k < total (n));
+	if (!res) k -= total (n);
+	auto all = generate_all (n);
+	v = all[(int) (k)];
 	return res;
 }
 
 Derangement::~Derangement ()
 {
 }
-
-vector <int64_t> init_f ()
-{
-	vector <int64_t> f;
-	f.push_back (1);
-	f.push_back (2);
-	while (true)
-	{
-		int64_t v = f[f.size () - 1] + f[f.size () - 2];
-		if (v < f[f.size () - 1])  // overflow
-		{
-			return f;
-		}
-		f.push_back (v);
-	}
-}
-
-vector <int64_t> Derangement::f = init_f ();

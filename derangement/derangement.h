@@ -4,8 +4,6 @@
 #include "combinatorial_object.h"
 class Derangement : public CombinatorialObject
 {
-	static vector <int64_t> f;  // number of Fibonacci strings
-
 public:
 	/// total number of objects of length n,
 	/// INT64_MAX if negative or overflow
