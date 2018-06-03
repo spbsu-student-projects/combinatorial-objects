@@ -1,0 +1,28 @@
+Количество слов Дика для ПСП длины 2*n.
+Автор - Константин Челпанов.
+
+OEIS: [A000108] (https://oeis.org/A000108) Catalan numbers.
+
+n-ое число Каталана равно количеству правильных скобочных последовательностей длины 2*n (состоящих из n открывающих и n закрывающих скобок,
+при этом в любом префиксе количество закрывающих скобок не превосходит количества закрывающих).
+
+Ссылки:
+
+[Wikipedia] https://en.wikipedia.org/wiki/Catalan_number
+[MathWorld] http://mathworld.wolfram.com/CatalanNumber.html
+
+Функция 'total': O(n).
+
+Функция 'generate_all': O(n * answer).
+
+Функция 'is_valid': O(n).
+
+Функция 'number_by_object': O(n^2).
+
+Функция 'object_by_number': O(n^2).
+
+Функция 'next': O(n).
+
+Функция 'prev': O(n).
+
+
