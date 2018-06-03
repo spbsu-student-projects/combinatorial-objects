@@ -7,12 +7,12 @@ class DyckWord: public CombinatorialObject
     static vector <int64_f> f; //number of Dyck words
 
 public:
-	/// total number of Dyck words of length 2*n,
-	/// INT64_MAX if negative or overflow
+	/// total number of Dyck words of length n,
+	/// INT64_MAX if negative or odd or overflow
 	int64_t total (int n);
 
-	/// lexicographically sorted vector of all Dyck words of length 2*n
-	/// empty if negative
+	/// lexicographically sorted vector of all Dyck words of length n
+	/// empty if negative or odd
 	vector<vector<int>> generate_all(int n);
 
 	/// validity of given object
@@ -22,8 +22,8 @@ public:
 	/// undefined if overflow
 	int64_t number_by_object (vector <int> const & v);
 
-	/// object of length 2*n with given 0-based lexicographical number,
-	/// empty if out of bounds
+	/// object of length n with given 0-based lexicographical number,
+	/// empty if out of bounds or if n is odd
 	vector <int> object_by_number (int n, int64_t k);
 
 	/// transform valid object to lexicographically previous object,
