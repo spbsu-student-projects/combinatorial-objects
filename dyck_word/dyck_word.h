@@ -11,7 +11,7 @@ public:
 	/// INT64_MAX if negative or overflow
 	int64_t total (int n);
 
-	/// lexicographically sorted vector of all objects of length 2*n
+	/// lexicographically sorted vector of all Dyck words of length 2*n
 	/// empty if negative
 	vector<vector<int>> generate_all(int n);
 
@@ -22,7 +22,7 @@ public:
 	/// undefined if overflow
 	int64_t number_by_object (vector <int> const & v);
 
-	/// object of length n with given 0-based lexicographical number,
+	/// object of length 2*n with given 0-based lexicographical number,
 	/// empty if out of bounds
 	vector <int> object_by_number (int n, int64_t k);
 
