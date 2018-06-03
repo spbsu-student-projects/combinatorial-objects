@@ -7,11 +7,11 @@ class DyckWord: public CombinatorialObject
     static vector <int64_f> f; //number of Dyck words
 
 public:
-	/// total number of objects of length n,
+	/// total number of Dyck words of length 2*n,
 	/// INT64_MAX if negative or overflow
 	int64_t total (int n);
 
-	/// lexicographically sorted vector of all objects of length n
+	/// lexicographically sorted vector of all objects of length 2*n
 	/// empty if negative
 	vector<vector<int>> generate_all(int n);
 
