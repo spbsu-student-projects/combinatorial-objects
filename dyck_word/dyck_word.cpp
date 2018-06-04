@@ -63,11 +63,11 @@ bool is_valid (vector <int> const & v)
       int delta=0;
       for (int i=0;i<n;i++)
       {
-        if (v[i]==1)
+        if (v[i]==0)
         {
             delta+=1;
         }
-        if (v[i]==0)
+        if (v[i]==1)
         {
             delta-=1;
         }
@@ -98,7 +98,7 @@ int64_t DyckWord::number_by_object (vector <int> const & v)
       int64_t number;
       for (int i=0;i<n;i++)
       {
-            if (v[i]==1)
+            if (v[i]==0)
             {
                   d+=1;
             }
@@ -122,18 +122,72 @@ vector <int> DyckWord::object_by_number (int n, int64_t k)
       {
             if (f[n-1-i][d+1]>=k)
             {
-                  ans.push_back(1);
+                  ans.push_back(0);
                   d++;
             }
             else
             {
                   k-=f[n-1-i][d+1];
-                  ans.push_back(0);
+                  ans.push_back(1);
                   d--;
             }
                
       }
       return ans;
+}
+
+bool DyckWord::next(vector <int> const & v)
+{
+	auto n=(int)(v.size());
+	
+	bool unfixed=true;
+	vector <int> ans=v;
+	int open=0;
+	int close=0;
+	int k=-1;
+	for (int i=n-1;i>=0;--i)
+	{
+		if (v[i]==0)
+		{
+			open++;
+			if (close>open)
+			{
+				k=i;
+				break;
+			}
+		}
+		else
+		{
+			close++;
+		}	
+	}
+	ans.size(k+1);
+	if (ans.size()==0)
+	{
+		unfixed=false;
+		for (int i=1;i<=open;i++)
+		{
+			ans.push_back(0);
+		}
+		for (int i=1;i<=close;i++)
+		{
+			ans.push_back(1);
+		}
+	}
+	
+	else
+	{
+		ans[i]=1;
+		for (int i=1;i<=open;i++)
+		{
+			ans.push_back(0);
+		}
+		for (int i=1;i<=close;i++)
+		{
+			ans.push_back(1);
+		}
+	}
+	return ans;	
 }
 
 
