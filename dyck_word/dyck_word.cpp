@@ -38,22 +38,7 @@ bool is_valid (vector <int> const & v)
 
 int64_t DyckWord::total(int n)
 {
-    if (n<0||n%2!=0)
-    {
-        return 0;
-    }
-    
-          
-    if (n==0||n==2)
-    {
-        return 1;
-    }
-    int res=0;
-    for (int i=0;i<=(n/2)-1;i++)
-    {
-        res+=total(i)*total((n/2)-1-i);
-    }
-    return res;
+    return (0 <= n  && n<(int)(d.size())) ? d[0][n] : INT64_MAX;
 }
 
 bool DyckWord::is_valid(vector <int> const & v)
