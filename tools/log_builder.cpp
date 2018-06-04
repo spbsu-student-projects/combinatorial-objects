@@ -260,7 +260,7 @@ const int FROZEN_TIME = 40319;
 const int FINISH_TIME = 40320;
 
 const string PROBLEM_ID = "A";
-const string PROBLEM_NAME = "\"Дополнительное задание (?, +30)\"";
+const string PROBLEM_NAME = "\"Дополнительное задание (?, *, +30)\"";
 
 int main(int argc, char* argv[])
 {
