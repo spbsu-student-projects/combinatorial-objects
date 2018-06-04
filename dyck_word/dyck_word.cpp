@@ -36,7 +36,7 @@ bool is_valid (vector <int> const & v)
     }
 }
 
-int64_t DyckWord::total(int n)
+int64_t DyckWord::total(int64_t n)
 {
     return (0 <= n  && n<(int)(d.size())) ? d[0][n] : INT64_MAX;
 }
