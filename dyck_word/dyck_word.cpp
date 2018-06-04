@@ -161,7 +161,7 @@ bool DyckWord::next(vector <int> const & v)
 			close++;
 		}	
 	}
-	ans.size(k+1);
+	ans.resize(k+1);
 	if (ans.size()==0)
 	{
 		unfixed=false;
@@ -177,17 +177,64 @@ bool DyckWord::next(vector <int> const & v)
 	
 	else
 	{
-		ans[i]=1;
+		ans[k]=1;
 		for (int i=1;i<=open;i++)
 		{
 			ans.push_back(0);
 		}
-		for (int i=1;i<=close;i++)
+		for (int i=1;i<=(close-1);i++)
 		{
 			ans.push_back(1);
 		}
 	}
 	return ans;	
+}
+
+bool DyckWord::prev(vector <int> const & v)
+	
+{
+	auto n=(int)(v.size());
+	
+	bool unfixed=true;
+	vector <int> ans=v;
+	int open=0;
+	int close=0;
+	int k=-1;
+	for (int i=n-1;i>=0;--i)
+	{
+		if (v[i]==0)
+		{
+			open++;
+		}
+		if (v[i]==1)
+		{
+			close++;
+			if (open>0)
+			{
+				k=i;
+				break;
+			}
+		}
+	}
+	ans.resize(k+1);
+	if (ans.size()==0)
+	{
+		unfixed=false;
+		for (int i=1;i<=open;i++)
+		{
+			ans.push_back(0);
+			ans.push_back(1);
+		}
+	}
+	else
+	{
+		ans[k]=0;
+		for (int i=0;
+	}
+	
+	
+	
+	
 }
 
 
