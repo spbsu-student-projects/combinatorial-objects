@@ -41,6 +41,32 @@ int64_t DyckWord::total(int n)
     return (0 <= n  && n<(int)(d.size())) ? d[0][n] : INT64_MAX;
 }
 
+int64_t DyckWord::number_by_object (vector <int> const & v)
+{
+      auto n=(int)(v.size());
+      int d=0;
+      int64_t number;
+      for (int i=0;i<n;i++)
+      {
+            if (v[i]==1)
+            {
+                  d+=1;
+            }
+            else
+            {
+                  number+=f[n-1-i][d+1];
+                  d-=1;
+            }       
+      }
+      return number;
+}
+
+
+
+
+
+
+
 bool DyckWord::is_valid(vector <int> const & v)
 {
     return ::is_valid(v);
