@@ -49,3 +49,27 @@ bool DyckWord::is_valid(vector <int> const & v)
 DyckWord::~DyckWord()
 {
 }
+
+vector <vector <int64_t>> init_f()
+{
+      vector <vector <int64_t>> f;
+      int n;
+      int d;
+      const maxN=25; //maximum, where n-th Catalan number doesn't exceed int64_max
+      if ((d==0) && (n==0))
+      {
+            f[n][d]=1;
+      }
+      if ((d>n)||(d<0))
+      {
+            f[n][d]=0;
+      }
+      for (n=1;n<=maxN;n++)
+            for (d=0;d<=n;d++)
+            {
+                  f[n][d]=f[n-1][d-1]+f[n-1][d+1];
+            }
+      return f;
+}
+
+vector <vector<int64_t>> DyckWord::f = init_f ();
