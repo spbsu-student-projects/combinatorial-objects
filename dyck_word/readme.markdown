@@ -11,7 +11,7 @@ n-ое число Каталана равно количеству правил�
 [Wikipedia] https://en.wikipedia.org/wiki/Catalan_number
 [MathWorld] http://mathworld.wolfram.com/CatalanNumber.html
 
-Функция 'total': O(n).
+Функция 'total': O(n^2) - предподсчёт, O(1) - сама функция.
 
 Функция 'generate_all': O(n * answer).
 
