@@ -169,7 +169,7 @@ bool DyckWord::next(vector <int> const & v)
 		{
 			ans.push_back(0);
 		}
-		for (int i=1;i<=close;i++)
+		for (int i=1;i<=close-1;i++)
 		{
 			ans.push_back(1);
 		}
@@ -229,8 +229,20 @@ bool DyckWord::prev(vector <int> const & v)
 	else
 	{
 		ans[k]=0;
-		for (int i=0;
+		for (int i=1;i<=close-open+1;i++)
+		{
+			ans.push_back(1);
+		}
+		for (int i=1;i<=(open-1);i++)
+		{
+			ans.push_back(0);
+		}
+		for (int i=1;i<=(open-1);i++)
+		{
+			ans.push_back(1);
+		}
 	}
+	return ans;
 	
 	
 	
