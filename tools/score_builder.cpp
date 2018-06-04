@@ -9,6 +9,7 @@
 using namespace std;
 
 const string SCORE_STRING = "score.txt";
+const string SCORE_OUTPUT_STRING = "total_score.txt";
 const string TASKS_STRING = "somefile";
 const string REPEATABLE_TASK = "issue";
 const string OWNER_SUBTASK = "ok";
@@ -38,7 +39,7 @@ int main(int argc, char* argv[])
 {
 	string s = ((argc >= 2) ? argv[1] : TASKS_STRING);
 	ifstream tasks(s);
-	ofstream fout(SCORE_STRING);
+	ofstream fout(SCORE_OUTPUT_STRING);
 	string task;
 	unordered_map<string, pair<int, unordered_set<string>>> people;
 	while (getline(tasks, task))
