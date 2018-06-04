@@ -51,9 +51,9 @@ int64_t DyckWord::total(int n)
     int res=0;
     for (int i=0;i<=(n/2)-1;i++)
     {
-        t+=total(i)*total((n/2)-1-i);
+        res+=total(i)*total((n/2)-1-i);
     }
-    return t;
+    return res;
 }
 
 bool DyckWord::is_valid(vector <int> const & v)
