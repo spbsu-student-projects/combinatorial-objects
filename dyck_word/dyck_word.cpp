@@ -61,6 +61,31 @@ int64_t DyckWord::number_by_object (vector <int> const & v)
       return number;
 }
 
+vector <int> DyckWord::object_by_number (int64_t n, int64_t k)
+{
+      if (n%2!=0||k>=total(n)||k<0)
+      {
+            return vector <int> ();
+      }
+      vector <int> ans;
+      for (int i=0; i<n; i++)
+      {
+            if (f[n-1-i][d+1]>=k)
+            {
+                  ans.push_back(1);
+                  d++;
+            }
+            else
+            {
+                  k-=f[n-1-i][d+1];
+                  ans.push_back(0);
+                  d--;
+            }
+               
+      }
+      return ans;
+}
+
 
 
 
