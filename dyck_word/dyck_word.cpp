@@ -7,6 +7,56 @@ string DyckWord::name()
       return "DyckWord";
 }
 
+
+
+
+struct GenerateHelper
+{
+      vector <vector <int> > res;
+      int n;
+      vector <int> cur;
+
+
+
+      void generate_recur(int open, int close)
+      {
+            if ((open+close == n) && (open==close))
+                  {
+                        res.push_back (cur);
+                        return;
+                  }
+
+            cur[open+close]=0;
+            if (open<n/2)
+            {
+                  generate_recur(open+1,close);
+            }
+            cur[open+close]=1;
+            if (open>close)
+            {
+                  generate_recur(open,close+1);
+            }
+      }
+}
+
+vector <vector<int>>  DyckWord::generate(int n)
+{
+      if (n<0)
+      {
+            return vector <vector <int> > ();
+      }
+      GenerateHelper gen (n);
+	gen.generate_recur (0);
+	return gen.res;      
+}
+
+
+
+
+
+
+
+
 bool is_valid (vector <int> const & v)
 {
       auto n=(int)(v.size());
@@ -36,7 +86,7 @@ bool is_valid (vector <int> const & v)
     }
 }
 
-int64_t DyckWord::total(int64_t n)
+int64_t DyckWord::total(int n)
 {
     return (0 <= n  && n<(int)(d.size())) ? d[0][n] : INT64_MAX;
 }
@@ -61,7 +111,7 @@ int64_t DyckWord::number_by_object (vector <int> const & v)
       return number;
 }
 
-vector <int> DyckWord::object_by_number (int64_t n, int64_t k)
+vector <int> DyckWord::object_by_number (int n, int64_t k)
 {
       if (n%2!=0||k>=total(n)||k<0)
       {
@@ -85,6 +135,8 @@ vector <int> DyckWord::object_by_number (int64_t n, int64_t k)
       }
       return ans;
 }
+
+
 
 
 
