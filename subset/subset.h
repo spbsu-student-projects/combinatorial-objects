@@ -12,14 +12,14 @@ public:
 	int64_t total (int n);
 
 	/// lexicographically sorted vector of all objects of length n
-	/// empty if negative
+	/// undefined if negative
 	vector <vector <int> > generate_all (int n);
 
 	/// validity of given object
 	bool is_valid (vector <int> const & v);
 
 	/// 0-based lexicographical number of given valid object,
-	/// undefined if overflow
+	/// INT64_MAX if overflow
 	int64_t number_by_object (vector <int> const & v);
 
 	/// object of length n with given 0-based lexicographical number,

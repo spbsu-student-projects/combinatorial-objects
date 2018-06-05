@@ -5,7 +5,7 @@ total.opt        Никита Карагодин
 total.corner     Никита Карагодин
 generate.ok      Никита Карагодин
 generate.opt     Никита Карагодин
-generate.corner  Никита Карагодин
+generate.corner
 valid.ok         Никита Карагодин
 valid.poly       Никита Карагодин
 valid.opt        Никита Карагодин
