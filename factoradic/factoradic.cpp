@@ -22,7 +22,7 @@ int64_t Factoradic::total(int n) {
 vector<vector<int> > Factoradic::generate_all(int n) {
     if (total(n) == INT64_MAX)
         return vector<vector<int> >();
-    vector<vector<int> > vec(static_cast<uint32_t>(f[n + 1]));
+    vector<vector<int> > vec(static_cast<uint64_t>(f[n + 1]));
     vec[0] = vector<int>(static_cast<uint32_t>(n));
     for (int i = 1; i < vec.size(); i++) {
         vec[i] = vec[i - 1];
