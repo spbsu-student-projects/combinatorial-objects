@@ -1,0 +1,27 @@
+readme.links     Виктор Мигрин
+total.ok         Виктор Мигрин
+total.poly       Виктор Мигрин
+total.opt        Виктор Мигрин
+total.corner     Виктор Мигрин
+generate.ok      Виктор Мигрин
+generate.opt     Виктор Мигрин
+generate.corner  Виктор Мигрин
+valid.ok         Виктор Мигрин
+valid.poly       Виктор Мигрин
+valid.opt        Виктор Мигрин
+number.ok        Виктор Мигрин
+number.poly      Виктор Мигрин
+number.opt       Виктор Мигрин
+number.corner
+object.ok        Виктор Мигрин
+object.poly      Виктор Мигрин
+object.opt       Виктор Мигрин
+object.corner    Виктор Мигрин
+prev.ok          Виктор Мигрин
+prev.poly        Виктор Мигрин
+prev.opt         Виктор Мигрин
+prev.corner      Виктор Мигрин
+next.ok          Виктор Мигрин
+next.poly        Виктор Мигрин
+next.opt         Виктор Мигрин
+next.corner      Виктор Мигрин
