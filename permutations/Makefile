@@ -1,4 +1,4 @@
-name = permutations
+name = permutation
 sources = $(name).cpp runner.cpp $(incpath)/combinatorial_object.cpp
 incpath = ../combinatorial_object
 headers = $(name).h $(incpath)/combinatorial_object.h
