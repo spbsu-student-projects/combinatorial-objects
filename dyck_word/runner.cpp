@@ -2,6 +2,7 @@
 
 #include "dyck_word.h"
 
+int main()
 {
   CombinatorialObject * calculator = new DyckWord();
 	calculator->interact();
