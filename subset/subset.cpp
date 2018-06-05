@@ -64,7 +64,6 @@ vector<vector<int>> Subset::generate_all(int n)
 		return vector <vector <int> > ();
 	}
 	vector<vector<int>> all(1LL << n);
-	else
 	    if (n==0)
 	        return  vector<vector<int> > (1, vector<int>(0));
         else
