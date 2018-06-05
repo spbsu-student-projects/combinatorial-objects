@@ -6,21 +6,23 @@
 
 
 Ссылки:
-[Википедия](https://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%81%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F#%D0%A4%D0%B0%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%81%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F).
+[Википедия](https://ru.wikipedia.org/wiki/Система_счисления#Факториальная_система_счисления),
+[OEIS](http://oeis.org/A007623),
+[OEISWIKI](https://oeis.org/wiki/Factorial_numeral_system).
 
-Предподсчёт: O(n), где n = 20 &mdash; максимальное число,
+Предподсчёт: $O$(n), где n = 20 &mdash; максимальное число,
 для которого количество строк в ФСС длины n помещается в `int64_t`.
 
-Функция `total`: O(1).
+Функция `total`: $O$(1).
 
-Функция `generate_all`: O(n * (n+1)!).
+Функция `generate_all`: $O$(n * (n+1)!).
 
-Функция `is_valid`: O(n).
+Функция `is_valid`: $O$(n).
 
-Функция `number_by_object`: O(n).
+Функция `number_by_object`: $O$(n).
 
-Функция `object_by_number`: O(n).
+Функция `object_by_number`: $O$(n).
 
-Функция `prev`: O(n).
+Функция `prev`: $O$(n).
 
-Функция `next`: O(n).
+Функция `next`: $O$(n).
