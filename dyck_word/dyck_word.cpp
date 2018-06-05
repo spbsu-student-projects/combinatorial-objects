@@ -40,7 +40,7 @@ struct GenerateHelper
       }
 };
 
-vector <vector<int>>  DyckWord::generate(int n)
+vector <vector<int>>  DyckWord::generate_all(int n)
 {
       if (n<0)
       {
