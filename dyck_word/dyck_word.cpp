@@ -16,6 +16,7 @@ struct GenerateHelper
       int n;
       vector <int> cur;
 
+      GenerateHelper (int n) : n (n), cur (n) {}
 
 
       void generate_recur(int open, int close)
@@ -118,6 +119,7 @@ vector <int> DyckWord::object_by_number (int n, int64_t k)
             return vector <int> ();
       }
       vector <int> ans;
+      int d=0;
       for (int i=0; i<n; i++)
       {
             if (f[n-1-i][d+1]>=k)
