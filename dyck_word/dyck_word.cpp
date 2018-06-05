@@ -37,7 +37,7 @@ struct GenerateHelper
                   generate_recur(open,close+1);
             }
       }
-}
+};
 
 vector <vector<int>>  DyckWord::generate(int n)
 {
