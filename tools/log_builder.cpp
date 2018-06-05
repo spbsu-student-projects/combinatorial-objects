@@ -300,7 +300,7 @@ int main(int argc, char* argv[])
 	fout << "@comment @pragma HideUnfrozenCount"; fout << '\n';
 	fout << "@p " << PROBLEM_ID << "," << PROBLEM_NAME << ",0,0"; fout << '\n';
 	for (int i = 0; i < ((int)(achievements.size())); ++i)
-		fout << "@t " << logins[achievements[i].first] << ",0,1,\"" << teams[achievements[i].first] << " (" << groups[achievements[i].first] << ")\"\n";
+		fout << "@t " << logins[achievements[i].first] << ",0,1," << teams[achievements[i].first] << " (" << groups[achievements[i].first] << ")\n";
 	for (int i = 0; i < ((int)(achievements.size())); ++i)
 		fout << "@s " << logins[achievements[i].first] << "," << PROBLEM_ID << ",1," << ((achievements[i].first == GREEN_PLUS_OBSESSION ? TIME_1 : TIME_2)) << "," << achievements[i].second << "\n";
 	return 0;
