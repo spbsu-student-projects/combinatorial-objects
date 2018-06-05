@@ -1,9 +1,9 @@
 // Author: Pavel Granin (GraninInfo@mail.ru)
-#include "permutations.h"
+#include "permutation.h"
 
 int main ()
 {
-	CombinatorialObject * calculator = new Permutations ();
+	CombinatorialObject * calculator = new Permutation ();
 	calculator -> interact ();
 	delete calculator;
 	return 0;
