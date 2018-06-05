@@ -16,9 +16,9 @@ OEIS: [A000041](https://oeis.org/A000041)  of partitions of n (the partition s).
 
 Функция `is_valid`: O(n).
 
-Функция `_by_object`: O(n*total(n)).
+Функция `number_by_object`: O(n*total(n)).
 
-Функция `object_by`: O(n*total(n)).
+Функция `object_by_number`: O(n*total(n)).
 
 Функция `prev`: O(n)
 
