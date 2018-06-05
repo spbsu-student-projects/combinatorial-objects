@@ -1,2 +1,6 @@
+bin
+obj
+*.depend
+*.layout
 lyndon_word
 lyndon_word.exe
