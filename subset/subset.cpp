@@ -108,7 +108,7 @@ bool Subset::is_valid(vector<int> const& v)
 int64_t Subset::number_by_object(vector<int> const& v)
 {
 	int n=v.size();
-	long long ans=0;
+	int64_t ans=0;
 	for(int  i=0; i<n; i++)
         if(v[i]==1)
         {
