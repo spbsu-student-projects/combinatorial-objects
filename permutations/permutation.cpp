@@ -123,7 +123,7 @@ bool Permutation::prev (vector <int> & v)
 	o = 1;
 	for (i = 1; i < n + 1; i++) o = o * i;
 	k -= 1;
-	if (k == -1) { v = object_by_number(n, o); return false; }
+	if (k == -1) { v = object_by_number(n, o-1); return false; }
 		v = object_by_number(n, k); return true;
 }
 
@@ -136,7 +136,7 @@ bool Permutation::next (vector <int> & v)
 	int64_t o;
 	o = 1;
 	for (i = 1; i < n + 1; i++) o = o * i;
-	if (k == o) { v = object_by_number(n, 1); return false; }
+	if (k == o) { v = object_by_number(n, 0); return false; }
 	v = object_by_number(n, k); return true;
 }
 
