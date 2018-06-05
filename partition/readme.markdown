@@ -20,6 +20,6 @@ OEIS: [A000041](https://oeis.org/A000041)  of partitions of n (the partition s).
 
 Функция `object_by_number`: O(n*total(n)).
 
-Функция `prev`: O(n)
+Функция `prev`: O(n).
 
-Функция `next`: O(n)
+Функция `next`: O(n).
