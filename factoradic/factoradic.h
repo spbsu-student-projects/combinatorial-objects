@@ -25,11 +25,11 @@ public:
     int64_t number_by_object(vector<int> const &v) override;
 
     /// object of length n with given 0-based lexicographical number,
-    /// undefined if out of bounds
+    /// empty if out of bounds
     vector<int> object_by_number(int n, int64_t k) override;
 
     /// transform valid object to lexicographically previous object,
-    /// true if successful, false and undefined state if was first
+    /// true if successful, false and last object if was first
     bool prev(vector<int> &v) override;
 
     /// transform valid object to lexicographically next object,
