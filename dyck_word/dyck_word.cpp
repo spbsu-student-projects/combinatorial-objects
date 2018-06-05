@@ -138,7 +138,7 @@ vector <int> DyckWord::object_by_number (int n, int64_t k)
       return ans;
 }
 
-bool DyckWord::next(vector <int> const & v)
+vector DyckWord::next(vector <int> const & v)
 {
 	auto n=(int)(v.size());
 	
@@ -192,7 +192,7 @@ bool DyckWord::next(vector <int> const & v)
 	return ans;	
 }
 
-bool DyckWord::prev(vector <int> const & v)
+vector DyckWord::prev(vector <int> const & v)
 	
 {
 	auto n=(int)(v.size());
