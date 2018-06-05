@@ -18,7 +18,6 @@ struct GenerateHelper
 
       GenerateHelper (int n) : n (n), cur (n) {}
 
-
       void generate_recur(int open, int close)
       {
             if ((open+close == n) && (open==close))
@@ -47,8 +46,8 @@ vector <vector<int>>  DyckWord::generate_all(int n)
             return vector <vector <int> > ();
       }
       GenerateHelper gen (n);
-	gen.generate_recur (0);
-	return gen.res;      
+	gen.generate_recur (0,0);
+	return gen.res;
 }
 
 
@@ -89,7 +88,7 @@ bool is_valid (vector <int> const & v)
 
 int64_t DyckWord::total(int n)
 {
-    return (0 <= n  && n<(int)(d.size())) ? d[0][n] : INT64_MAX;
+    return (0 <= n  && n<(int)(f.size())) ? f[n][0] : INT64_MAX;
 }
 
 int64_t DyckWord::number_by_object (vector <int> const & v)
@@ -107,7 +106,7 @@ int64_t DyckWord::number_by_object (vector <int> const & v)
             {
                   number+=f[n-1-i][d+1];
                   d-=1;
-            }       
+            }
       }
       return number;
 }
@@ -133,15 +132,15 @@ vector <int> DyckWord::object_by_number (int n, int64_t k)
                   ans.push_back(1);
                   d--;
             }
-               
+
       }
       return ans;
 }
 
-vector DyckWord::next(vector <int> const & v)
+bool DyckWord::next(vector <int> & v)
 {
 	auto n=(int)(v.size());
-	
+
 	bool unfixed=true;
 	vector <int> ans=v;
 	int open=0;
@@ -161,7 +160,7 @@ vector DyckWord::next(vector <int> const & v)
 		else
 		{
 			close++;
-		}	
+		}
 	}
 	ans.resize(k+1);
 	if (ans.size()==0)
@@ -176,7 +175,7 @@ vector DyckWord::next(vector <int> const & v)
 			ans.push_back(1);
 		}
 	}
-	
+
 	else
 	{
 		ans[k]=1;
@@ -189,14 +188,14 @@ vector DyckWord::next(vector <int> const & v)
 			ans.push_back(1);
 		}
 	}
-	return ans;	
+	return unfixed;
 }
 
-vector DyckWord::prev(vector <int> const & v)
-	
+bool DyckWord::prev(vector <int> & v)
+
 {
 	auto n=(int)(v.size());
-	
+
 	bool unfixed=true;
 	vector <int> ans=v;
 	int open=0;
@@ -244,11 +243,7 @@ vector DyckWord::prev(vector <int> const & v)
 			ans.push_back(1);
 		}
 	}
-	return ans;
-	
-	
-	
-	
+	return unfixed;
 }
 
 
@@ -273,7 +268,7 @@ vector <vector <int64_t>> init_f()
       vector <vector <int64_t>> f;
       int n;
       int d;
-      const maxN=25; //maximum, where n-th Catalan number doesn't exceed int64_max
+      const int maxN=25; //maximum, where n-th Catalan number doesn't exceed int64_max
       if ((d==0) && (n==0))
       {
             f[n][d]=1;
