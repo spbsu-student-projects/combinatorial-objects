@@ -1,13 +1,13 @@
 // Author: Pavel Granin (GraninInfo@mail.ru)
 #include <cassert>
-#include "permutations.h"
+#include "permutation.h"
 
-string Permutations::name ()
+string Permutation::name ()
 {
 	return "Permutations";
 }
 
-int64_t Permutations::total (int n)
+int64_t Permutation::total (int n)
 {
 	int i;
 	int64_t o;
@@ -48,7 +48,7 @@ struct GenerateHelper
 	}
 };
 
-vector <vector <int> > Permutations::generate_all (int n)
+vector <vector <int> > Permutation::generate_all (int n)
 {
 	if (n < 0)
 	{
@@ -59,7 +59,7 @@ vector <vector <int> > Permutations::generate_all (int n)
 	return gen.res;
 }
 
-bool Permutations::is_valid(vector <int> const & v)
+bool Permutation::is_valid(vector <int> const & v)
 {
 	auto n = (int)(v.size());
 	vector <bool> used(n + 1);
@@ -74,7 +74,7 @@ bool Permutations::is_valid(vector <int> const & v)
 	return true;
 }
 
-int64_t Permutations::number_by_object (vector <int> const & v)
+int64_t Permutation::number_by_object (vector <int> const & v)
 {
 	auto n = (int) (v.size ());
 	vector <bool> used(n+1);
@@ -93,7 +93,7 @@ int64_t Permutations::number_by_object (vector <int> const & v)
 	return o1;
 }
 
-vector <int> Permutations::object_by_number (int n, int64_t k)
+vector <int> Permutation::object_by_number (int n, int64_t k)
 {
 	int i, y , t ;
 	int64_t o;	
@@ -115,7 +115,7 @@ vector <int> Permutations::object_by_number (int n, int64_t k)
 	return res;
 }
 
-bool Permutations::prev (vector <int> & v)
+bool Permutation::prev (vector <int> & v)
 {
 	int64_t k = number_by_object (v);
 	auto n = (int) (v.size ());
@@ -128,7 +128,7 @@ bool Permutations::prev (vector <int> & v)
 		v = object_by_number(n, k); return true;
 }
 
-bool Permutations::next (vector <int> & v)
+bool Permutation::next (vector <int> & v)
 {
 	int64_t k = number_by_object (v);
 	auto n = (int) (v.size ());
@@ -141,6 +141,6 @@ bool Permutations::next (vector <int> & v)
 	v = object_by_number(n, k); return true;
 }
 
-Permutations::~Permutations ()
+Permutation::~Permutation ()
 {
 }
