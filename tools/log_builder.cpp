@@ -282,6 +282,7 @@ int main(int argc, char* argv[])
 		if (it != short_dictionary.end())
 			achievements.emplace_back(it->second, points);
 	}
+	sort(begin(achievements), end(achievements));
 	ofstream fout("180509.log");
 //	fout << "--- testsys monitor file m180509_b17.dat ---"; fout << '\n';
 //	fout << "Text monitors are not supported in contests with IOI-Mode problems"; fout << '\n';
