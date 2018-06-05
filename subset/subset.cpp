@@ -58,11 +58,12 @@ bool reduce_1_to_ith_position(int i, vector<int>& v)
 
 vector<vector<int>> Subset::generate_all(int n)
 {
-	vector<vector<int>> all(1LL << n);
+
 	if (n < 0)
 	{
 		return vector <vector <int> > ();
 	}
+	vector<vector<int>> all(1LL << n);
 	else
 	    if (n==0)
 	        return  vector<vector<int> > (1, vector<int>(0));
