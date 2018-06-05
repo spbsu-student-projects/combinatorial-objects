@@ -1,15 +1,12 @@
 // Author: Victor Migrin (v-v-m12@mail.ru)
 
-#ifndef GRAY_CODE_H_
-#define GRAY_CODE_H_
+#ifndef FACTORADIC_H_
+#define FACTORADIC_H_
 
 #include "combinatorial_object.h"
 
 class Factoradic : public CombinatorialObject {
 public:
-    typedef unsigned int ui;
-    typedef unsigned long long ull;
-
     Factoradic();
 
     /// total number of objects of length n,
@@ -52,4 +49,4 @@ private:
     bool check_max(vector<int> &v);
 };
 
-#endif // GRAY_CODE_H_
+#endif // FACTORADIC_H
