@@ -1,8 +1,8 @@
 // Author: Pavel Granin (GraninInfo@mail.ru)
-#ifndef PERMUTATIONS_H_
-#define PERMUTATIONS_H_
+#ifndef PERMUTATION_H_
+#define PERMUTATION_H_
 #include "combinatorial_object.h"
-class Permutations : public CombinatorialObject
+class Permutation : public CombinatorialObject
 {
 public:
 	/// total number of objects of length n,
@@ -36,6 +36,6 @@ public:
 	string name ();
 
 	/// destructor
-	~Permutations ();
+	~Permutation ();
 };
-#endif // PERMUTATIONS_H_
+#endif // PERMUTATION_H_
