@@ -5,8 +5,13 @@
 
 #include "combinatorial_object.h"
 
-class GrayCode : public CombinatorialObject {
+class Factoradic : public CombinatorialObject {
 public:
+    typedef unsigned int ui;
+    typedef unsigned long long ull;
+
+    Factoradic();
+
     /// total number of objects of length n,
     /// INT64_MAX if negative or overflow
     int64_t total(int n) override;
@@ -36,7 +41,15 @@ public:
 
     string name() override;
 
-    ~GrayCode();
+    ~Factoradic();
+
+private:
+    const size_t MAX_FACT = 20;
+    vector<int64_t> f;
+
+    bool check_min(vector<int> &v);
+
+    bool check_max(vector<int> &v);
 };
 
 #endif // GRAY_CODE_H_
