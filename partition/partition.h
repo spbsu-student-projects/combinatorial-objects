@@ -4,9 +4,8 @@
 #include "combinatorial_object.h"
 class Partition : public CombinatorialObject
 {
-	// number of ways to finish object with first (n - i) elements fixed with maximum equal to (j - 1) (or -infinity in case of j == 0)
-	// d[i][0] equals number of objects of length i
-	static vector<vector<int64_t>> d;
+	static vector <uint64_t> f;  // number of partitions
+
 public:
 
 	/// total number of objects of length n,
@@ -29,11 +28,11 @@ public:
 	vector<int> object_by_number(int n, int64_t k);
 
 	/// transform valid object to lexicographically previous object,
-	/// true if successful, false and last object if was first
+	/// true if successful, false if was first
 	bool prev(vector<int>& v);
 
 	/// transform valid object to lexicographically next object,
-	/// true if successful, false and first object if was last
+	/// true if successful, falseif was last
 	bool next(vector<int>& v);
 
 	/// name of combinatorial object

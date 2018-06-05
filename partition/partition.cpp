@@ -6,7 +6,7 @@
 
 string Partition::name()
 {
-	return "PartitionNumber";
+	return "Partition";
 }
 
 bool is_valid(vector <int> const & v)
@@ -31,72 +31,9 @@ bool is_valid(vector <int> const & v)
 	return true;
 }
 
-bool maxi = true;
-
-int mini;
-
-vector <int64_t> tot;
-
 int64_t Partition::total(int n)
 {
-	if (n < 0)
-	{
-		return 0;
-	}
-	if (maxi)
-	{
-		mini = n;
-		maxi = false;
-		tot.resize(n + 10);
-		tot[0] = 1;
-	}
-	if (tot[n] != 0)
-	{
-		return tot[n];
-	}
-	else
-	{
-
-		int64_t res = 0;
-		for (int q = 1; (3 * q*q - q) / 2 <= n; q++)
-		{
-			int a = n - (3 * q*q - q) / 2;
-			int b = n - (3 * q*q + q) / 2;
-			int64_t j1;
-			int64_t j2;
-			if (tot[a] != 0)
-			{
-				j1 = tot[a];
-			}
-			else
-			{
-				j1 = total(a);
-				tot[a] = j1;
-			}
-			if (b >= 0)
-			{
-				if (tot[b] != 0)
-				{
-					j2 = tot[b];
-				}
-				else
-				{
-					j2 = total(b);
-					tot[b] = j2;
-				}
-			}
-			else
-			{
-				j2 = 0;
-			}
-			res = res + pow(-1,q+1)*(j1+j2);
-		}
-		if (mini == n)
-		{
-			maxi = true;
-		}
-		return res;
-	}
+	return (0 <= n && n < 406) ? f[n] : INT64_MAX;
 }
 
 vector <int> nextel(vector <int> v)
@@ -127,7 +64,7 @@ vector <int> nextel(vector <int> v)
 		}
 		if (i < k - 1)
 		{
-			if (ans[i] > 1 & ans[i + 1] <= 1 & unfixed)
+			if ((ans[i] > 1 && ans[i + 1] <= 1) && unfixed)
 			{
 				ans[i] = ans[i] - 1;
 				m = ans[i];
@@ -148,7 +85,7 @@ vector <int> prevel(vector <int> v)
 	vector <int> ans = v;
 	for (int i = 1; i < k-1; i++)
 	{
-		if (ans[i] < ans[i - 1] & ans[i] != 0 & ans[i + 1] != 0)
+		if (ans[i] < ans[i - 1] && (ans[i] != 0 && ans[i + 1] != 0))
 		{
 			m = i;
 		}
@@ -272,3 +209,37 @@ bool Partition::next(vector <int> & v)
 Partition::~Partition()
 {
 }
+
+vector <uint64_t> init_f()
+{
+	vector <uint64_t> f;
+	f.push_back(1);
+	while (true)
+	{
+		int s = f.size();
+		uint64_t res = 0;
+		for (int q = 1; (3 * q*q - q) / 2 <= s; q++)
+		{
+			int a = s - (3 * q*q - q) / 2;
+			int b = s - (3 * q*q + q) / 2;
+			uint64_t j1 = f[a];
+			uint64_t j2;
+			if (b >= 0)
+			{
+				j2 = f[b];
+			}
+			else
+			{
+				j2 = 0;
+			}
+			res = res + pow(-1, q + 1)*(j1 + j2);
+		}
+		if (res < f[f.size() - 1])  // overflow
+		{
+			return f;
+		}
+		f.push_back(res);
+	}
+}
+
+vector <uint64_t> Partition::f = init_f();
