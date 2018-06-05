@@ -80,7 +80,7 @@ int64_t Permutation::number_by_object (vector <int> const & v)
 	vector <bool> used(n+1);
 	int64_t o = 1;
 	int i;
-	int64_t o1 = 1;
+	int64_t o1 = 0;
 	for (i = 1; i < n + 1; i++) {
 		o = o * i; used[i] = false;
 	}
@@ -101,8 +101,7 @@ vector <int> Permutation::object_by_number (int n, int64_t k)
 	vector <bool> used(n + 1);
 	o = 1;
 	for (i = 1; i < n + 1; i++) { o = o * i; used[i] = false; }
-	if (k < 1 || k > o) return res;
-	k = k - 1;
+	if (k < 0 || k > o-1) return res;
 	for (i = 1; i < n + 1; i++)
 	{
 		o = o / (n + 1 - i);
@@ -124,7 +123,7 @@ bool Permutation::prev (vector <int> & v)
 	o = 1;
 	for (i = 1; i < n + 1; i++) o = o * i;
 	k -= 1;
-	if (k == 0) { v = object_by_number(n, o); return false; }
+	if (k == -1) { v = object_by_number(n, o); return false; }
 		v = object_by_number(n, k); return true;
 }
 
@@ -137,7 +136,7 @@ bool Permutation::next (vector <int> & v)
 	int64_t o;
 	o = 1;
 	for (i = 1; i < n + 1; i++) o = o * i;
-	if (k == o+1) { v = object_by_number(n, 1); return false; }
+	if (k == o) { v = object_by_number(n, 1); return false; }
 	v = object_by_number(n, k); return true;
 }
 
