@@ -1,9 +1,7 @@
 // Author: Mikhail Ivanov (ivanovmihail99@gmail.com)
-#define _CRT_SECURE_NO_WARNINGS
 #include <fstream>
 #include <vector>
 #include <string>
-#include <iostream>
 #include <unordered_map>
 #include <unordered_set>
 #include <algorithm>
@@ -261,20 +259,16 @@ const int TIME_2 = 40318;
 const int FROZEN_TIME = 40319;
 const int FINISH_TIME = 40320;
 
-const string PROBLEM_NAME_1 = "Combinatorics";
-const string PROBLEM_NAME_2 = "Combinatorics";
-const string PROBLEM_NAME_3 = "Combinatorics";
+const string PROBLEM_ID = "A";
+const string PROBLEM_NAME = "\"Дополнительное задание (?, *, +30)\"";
 
 int main(int argc, char* argv[])
 {
-	setlocale(LC_ALL, "Russian");
-	freopen("total_score.txt", "r", stdin);
-	//ifstream fin("total_score.txt");
+	ifstream fin("total_score.txt");
 	string s;
 	vector<pair<int, int>> achievements;
-	while (getline(cin, s))
+	while (getline(fin, s))
 	{
-		cerr << s << '\n';
 		int points = 0, power_of_ten = 1;
 		while (s.size() && (s.back() != ' '))
 		{
@@ -292,22 +286,22 @@ int main(int argc, char* argv[])
 //	fout << "--- testsys monitor file m180509_b17.dat ---"; fout << '\n';
 //	fout << "Text monitors are not supported in contests with IOI-Mode problems"; fout << '\n';
 //	fout << "\x1a\n";
-	fout << "@contest \"Практика по программированию: таблица результатов, среда, 9 мая 2018 года\""; fout << '\n';
+	fout << "@contest \"Практика по программированию: дополнительное задание, среда, 9 мая 2018 года\""; fout << '\n';
 	fout << "@startat 09.05.2018 00:00:00"; fout << '\n';
 	fout << "@contlen " << FINISH_TIME; fout << '\n';
 	fout << "@now 0"; fout << '\n';
 	fout << "@state RUNNING"; fout << '\n';
 	fout << "@freeze " << FROZEN_TIME; fout << '\n';
 	fout << "@problems 1"; fout << '\n';
-	fout << "@teams " << teams.size(); fout << '\n';
+	fout << "@teams " << achievements.size(); fout << '\n';
 	fout << "@submissions " << achievements.size(); fout << '\n';
 	fout << "@comment @pragma IgnoreCE"; fout << '\n';
 	fout << "@comment @pragma IgnoreSubmTime"; fout << '\n';
 	fout << "@comment @pragma HideUnfrozenCount"; fout << '\n';
-	fout << "@p " << PROBLEM_NAME_1 << ",Результаты-" << PROBLEM_NAME_2 << ",0,0"; fout << '\n';
-	for (int i = 0; i < ((int)(teams.size())); ++i)
-		fout << "@t " << logins[i] << ",0,1,\"" << teams[i] << " (" << groups[i] << ")\"\n";
+	fout << "@p " << PROBLEM_ID << "," << PROBLEM_NAME << ",0,0"; fout << '\n';
 	for (int i = 0; i < ((int)(achievements.size())); ++i)
-		fout << "@s " << logins[achievements[i].first] << "," << PROBLEM_NAME_3 << ",1," << ((achievements[i].first == GREEN_PLUS_OBSESSION ? TIME_1 : TIME_2)) << "," << achievements[i].second << "\n";
+		fout << "@t " << logins[achievements[i].first] << ",0,1,\"" << teams[achievements[i].first] << " (" << groups[achievements[i].first] << ")\"\n";
+	for (int i = 0; i < ((int)(achievements.size())); ++i)
+		fout << "@s " << logins[achievements[i].first] << "," << PROBLEM_ID << ",1," << ((achievements[i].first == GREEN_PLUS_OBSESSION ? TIME_1 : TIME_2)) << "," << achievements[i].second << "\n";
 	return 0;
 }
