@@ -1,0 +1,10 @@
+derangement
+derangement.exe
+Debug
+Release
+*.opensdf
+*.sdf
+*.suo
+.vs
+*.user
+*.filters
