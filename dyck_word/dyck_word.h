@@ -4,7 +4,6 @@
 
 class DyckWord: public CombinatorialObject
 {
-    static vector <int64_f> f; //number of Dyck words
 
 public:
 	/// total number of Dyck words of length n,
