@@ -7,15 +7,26 @@ string Permutation::name ()
 	return "Permutations";
 }
 
+int64_t Fakt(int n)
+{
+	int64_t o = 1;
+	int i;
+	if (n > 20) return INT64_MAX; else
+	{
+		for (i = 1; i < n + 1; i++) o = o * i;
+		return o;
+	}
+}
+
+
+
 int64_t Permutation::total (int n)
 {
 	int i;
 	int64_t o;
 	if (n > 20) return INT64_MAX;
 	if (n < 0) return INT64_MAX;
-	o = 1;
-	for (i = 1; i < n+1; i++) o = o * i;
-	return o;
+	return Fakt(n);
 }
 
 struct GenerateHelper
@@ -78,35 +89,30 @@ int64_t Permutation::number_by_object (vector <int> const & v)
 {
 	auto n = (int) (v.size ());
 	vector <bool> used(n+1);
-	int64_t o = 1;
 	int i;
 	int64_t o1 = 0;
-	for (i = 1; i < n + 1; i++) {
-		o = o * i; used[i] = false;
-	}
+	for (i = 1; i < n + 1; i++) used[i] = false;
 	for (i = 1; i < n + 1; i++)
 	{
 		used[v[i-1]] = true;
-		o = o / (n + 1 - i);
-		for (int y = 1; y < v[i - 1]; y++) if (!used[y]) { if (o1 > INT64_MAX - o) { return INT64_MAX; }  o1 = o1 + o; }
+		for (int y = 1; y < v[i - 1]; y++) if (!used[y]) { if (o1 > INT64_MAX - Fakt(n-i) ) { return INT64_MAX; }  o1 = o1 + Fakt(n-i); }
 	}
 	return o1;
 }
 
-vector <int> Permutation::object_by_number (int n, int64_t k)
+vector <int> Permutation::object_by_number(int n, int64_t k)
 {
-	int i, y , t ;
-	int64_t o;	
+	int i, y, t;
+	int64_t o;
 	vector <int> res;
 	vector <bool> used(n + 1);
-	o = 1;
-	for (i = 1; i < n + 1; i++) { o = o * i; used[i] = false; }
-	if (k < 0 || k > o-1) return res;
+	o = Fakt(n);
+	for (i = 1; i < n + 1; i++) { used[i] = false; }
+	if (k < 0 || k > o - 1) return res;
 	for (i = 1; i < n + 1; i++)
 	{
-		o = o / (n + 1 - i);
 		t = 1;
-		for (y = 1; y < n + 1; y++) if (k >= o) { k = k - o; t++; }
+		for (y = 1; y < n + 1; y++) if ( (k >= Fakt(n-i) ) & (n-i < 21) ) { k = k - Fakt(n-i); t++; }
 		for (y = 1; y < n + 1; y++) { if (!used[y]) { t = t - 1; if (t == 0) break; } }
 		res.push_back(y);
 		used[y] = true;
