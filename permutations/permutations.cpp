@@ -9,9 +9,10 @@ string Permutations::name ()
 
 int64_t Permutations::total (int n)
 {
-	int i, o;
-	//return (n < 0) ? 0 : generate_all (n).size ();
-	if (n < 0) return 0;
+	int i;
+	int64_t o;
+	if (n > 20) return INT64_MAX;
+	if (n < 0) return INT64_MAX;
 	o = 1;
 	for (i = 1; i < n+1; i++) o = o * i;
 	return o;
@@ -77,9 +78,9 @@ int64_t Permutations::number_by_object (vector <int> const & v)
 {
 	auto n = (int) (v.size ());
 	vector <bool> used(n+1);
-	int o = 1;
+	int64_t o = 1;
 	int i;
-	int o1 = 1;
+	int64_t o1 = 1;
 	for (i = 1; i < n + 1; i++) {
 		o = o * i; used[i] = false;
 	}
@@ -87,14 +88,15 @@ int64_t Permutations::number_by_object (vector <int> const & v)
 	{
 		used[v[i-1]] = true;
 		o = o / (n + 1 - i);
-		for (int y = 1; y < v[i-1]; y++) if (!used[y]) o1 = o1 + o;
+		for (int y = 1; y < v[i - 1]; y++) if (!used[y]) { if (o1 > INT64_MAX - o) { return INT64_MAX; }  o1 = o1 + o; }
 	}
 	return o1;
 }
 
 vector <int> Permutations::object_by_number (int n, int64_t k)
 {
-	int i, y , o , t ;
+	int i, y , t ;
+	int64_t o;	
 	vector <int> res;
 	vector <bool> used(n + 1);
 	o = 1;
@@ -115,9 +117,10 @@ vector <int> Permutations::object_by_number (int n, int64_t k)
 
 bool Permutations::prev (vector <int> & v)
 {
-	auto k = number_by_object (v);
+	int64_t k = number_by_object (v);
 	auto n = (int) (v.size ());
-	int o,i;
+	int i;
+	int64_t o;
 	o = 1;
 	for (i = 1; i < n + 1; i++) o = o * i;
 	k -= 1;
@@ -127,10 +130,11 @@ bool Permutations::prev (vector <int> & v)
 
 bool Permutations::next (vector <int> & v)
 {
-	auto k = number_by_object (v);
+	int64_t k = number_by_object (v);
 	auto n = (int) (v.size ());
 	k += 1;
-	int o, i;
+	int i;
+	int64_t o;
 	o = 1;
 	for (i = 1; i < n + 1; i++) o = o * i;
 	if (k == o+1) { v = object_by_number(n, 1); return false; }
