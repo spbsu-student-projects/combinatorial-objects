@@ -33,7 +33,7 @@ bool is_valid(vector <int> const & v)
 
 int64_t Partition::total(int n)
 {
-	return (0 <= n && n < 406) ? f[n] : INT64_MAX;
+	return (0 <= n && n < f.size()) ? f[n] : INT64_MAX;
 }
 
 vector <int> nextel(vector <int> v)
@@ -234,7 +234,7 @@ vector <uint64_t> init_f()
 			}
 			res = res + pow(-1, q + 1)*(j1 + j2);
 		}
-		if (res < f[f.size() - 1])  // overflow
+		if (res < f[f.size() - 1] | res > INT64_MAX)  // overflow
 		{
 			return f;
 		}

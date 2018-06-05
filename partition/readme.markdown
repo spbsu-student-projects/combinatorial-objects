@@ -1,7 +1,7 @@
 Представление n в виде суммы положительных слагаемых.
 Автор: Матвей Жуков.
 
-OEIS: [A000041](https://oeis.org/A000041)  of partitions of n (the partition s).
+OEIS: [A000041](https://oeis.org/A000041)  Number of partitions of n (the partition numbers).
 
 Представление в виде суммы положительных слагаемых есть то же самое, что и представление n в виде суммы n неотрицательных слагаемых.
 
