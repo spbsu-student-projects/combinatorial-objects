@@ -1,3 +1,4 @@
+//Author: Konstantin Chelpanov chelpkostya@yandex.ru
 #ifndef DYCK_WORD_H_INCLUDED
 #define DYCK_WORD_H_INCLUDED
 #include "combinatorial_object.h"
