@@ -9,7 +9,7 @@ OEIS: [A000108](https://oeis.org/A000108) (Catalan numbers) &mdash; количе
 Ссылки:
 [Wikipedia](https://en.wikipedia.org/wiki/Catalan_number),
 [Wikipedia 2](https://en.wikipedia.org/wiki/Dyck_language),
-[MathWorld](http://mathworld.wolfram.com/CatalanNumber.html),
+[MathWorld](http://mathworld.wolfram.com/CatalanNumber.html).
 
 Альтернативные описания:
 
