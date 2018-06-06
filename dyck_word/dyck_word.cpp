@@ -236,13 +236,11 @@ bool DyckWord::prev(vector <int> & v)
 		{
 			v[k+i]=1;
 		}
+		v.resize(k+close-open+2);
 		for (int i=1;i<=(open-1);i++)
 		{
-			v[k+close-open+1+i]=0;
-		}
-		for (int i=1;i<=(open-1);i++)
-		{
-			v[k+close+i]=1;
+		    v.push_back(0);
+		    v.push_back(1);
 		}
 	}
 	return unfixed;
@@ -267,8 +265,8 @@ DyckWord::~DyckWord()
 
 vector <vector <int64_t>> init_f()
 {
-      const int maxN=25; //maximum, where n-th Catalan number doesn't exceed int64_max
-      vector <vector <int64_t>> f(2*maxN+1,vector<int64_t>(maxN+1));
+
+      vector <vector <int64_t>> f(201,vector<int64_t>(101));
       int n;
       int d;
       f[0][0]=1;
@@ -276,10 +274,13 @@ vector <vector <int64_t>> init_f()
       {
             f[n][d]=0;
       }
-      for (n=1;n<=maxN;n++)
-            for (d=0;d<=n;d++)
+      for (n=1;n<=100;n++)
+           for (d=0;d<=n;d++)
             {
-                  f[n][d]=f[n-1][d+1] + ((d == 0) ? 0 : f[n-1][d-1]);
+                 if (INT64_MAX-f[n-1][d+1]>((d == 0) ? 0 : f[n-1][d-1]))
+                 f[n][d]=f[n-1][d+1] + ((d == 0) ? 0 : f[n-1][d-1]);
+                 else
+                 f[n][d]=INT64_MAX;
             }
       return f;
 }
