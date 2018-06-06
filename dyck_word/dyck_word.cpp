@@ -95,7 +95,7 @@ int64_t DyckWord::number_by_object (vector <int> const & v)
 {
       auto n=(int)(v.size());
       int d=0;
-      int64_t number;
+      int64_t number=0;
       for (int i=0;i<n;i++)
       {
             if (v[i]==0)
