@@ -168,7 +168,7 @@ int64_t Partition::number_by_object(vector <int> const & v)
 vector <int> Partition::object_by_number(int n, int64_t k)
 {
 	auto all = generate_all(n);
-	if (k<0 || k>=all.size())
+	if (k<0 || k>=int64_t(all.size()))
 	{
 		vector <int> kek;
 		return kek;
