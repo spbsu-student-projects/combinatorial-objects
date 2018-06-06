@@ -7,6 +7,8 @@ string Permutation::name ()
 	return "Permutations";
 }
 
+
+
 int64_t Fakt(int n)
 {
 	int64_t o = 1;
@@ -19,14 +21,13 @@ int64_t Fakt(int n)
 }
 
 
-
 int64_t Permutation::total (int n)
 {
 	int i;
 	int64_t o;
 	if (n > 20) return INT64_MAX;
 	if (n < 0) return INT64_MAX;
-	return Fakt(n);
+	return f[n];
 }
 
 struct GenerateHelper
@@ -149,3 +150,17 @@ bool Permutation::next (vector <int> & v)
 Permutation::~Permutation ()
 {
 }
+
+
+
+vector <int64_t> init_f()
+{
+	vector <int64_t> f;
+	int64_t o = 1;
+	f.push_back(1);
+	int i;
+	for (i = 1; i < 21; i++) { o = o * i; f.push_back(o); }
+	return f;
+
+}
+vector <int64_t> Permutation::f = init_f();
