@@ -121,7 +121,7 @@ vector <int> DyckWord::object_by_number (int n, int64_t k)
       int d=0;
       for (int i=0; i<n; i++)
       {
-            if (f[n-1-i][d+1]>k)
+            if (f[n-1-i][d+1]>=k)
             {
                   ans[i]=0;
                   d++;
@@ -142,7 +142,7 @@ bool DyckWord::next(vector <int> & v)
 	auto n=(int)(v.size());
 
 	bool unfixed=true;
-	vector <int> ans=v;
+
 	int open=0;
 	int close=0;
 	int k=-1;
@@ -168,24 +168,24 @@ bool DyckWord::next(vector <int> & v)
 		unfixed=false;
 		for (int i=0;i<=open-1;i++)
 		{
-			ans[i]=0;
+			v[i]=0;
 		}
 		for (int i=0;i<=close-1;i++)
 		{
-			ans[i+open]=1;
+			v[i+open]=1;
 		}
 	}
 
 	else
 	{
-		ans[k]=1;
+		v[k]=1;
 		for (int i=1;i<=open;i++)
 		{
-			ans.push_back(0);
+			v[k+i]=0;
 		}
 		for (int i=1;i<=(close-1);i++)
 		{
-			ans.push_back(1);
+			v[k+open+i]=1;
 		}
 	}
 	return unfixed;
@@ -197,7 +197,7 @@ bool DyckWord::prev(vector <int> & v)
 	auto n=(int)(v.size());
 
 	bool unfixed=true;
-	vector <int> ans=v;
+
 	int open=0;
 	int close=0;
 	int k=-1;
@@ -217,30 +217,32 @@ bool DyckWord::prev(vector <int> & v)
 			}
 		}
 	}
-	ans.resize(k+1);
-	if (ans.size()==0)
+	if (k==-1)
 	{
 		unfixed=false;
-		for (int i=1;i<=open;i++)
+		for (int i=0;i<=open-1;i++)
 		{
-			ans.push_back(0);
-			ans.push_back(1);
+			v[2*i]=0;
+		}
+		for (int i=0;i<=close-1;i++)
+		{
+			v[2*i+1]=1;
 		}
 	}
 	else
 	{
-		ans[k]=0;
+		v[k]=0;
 		for (int i=1;i<=close-open+1;i++)
 		{
-			ans.push_back(1);
+			v[k+i]=1;
 		}
 		for (int i=1;i<=(open-1);i++)
 		{
-			ans.push_back(0);
+			v[k+close-open+1+i]=0;
 		}
 		for (int i=1;i<=(open-1);i++)
 		{
-			ans.push_back(1);
+			v[k+close+i]=1;
 		}
 	}
 	return unfixed;
