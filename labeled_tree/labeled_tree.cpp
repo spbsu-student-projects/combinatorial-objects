@@ -65,7 +65,7 @@ int64_t LabeledTree::number_by_object(vector <int> const & v){
 }
 
 vector <int> LabeledTree::object_by_number(int n, int64_t k){
-	if(k < 0 || k > total(n)){
+	if(k < 0 || k >= total(n)){
 		vector <int> v (0);
 		return v;
 	}
