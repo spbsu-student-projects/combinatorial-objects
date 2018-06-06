@@ -33,7 +33,8 @@ bool is_valid(vector <int> const & v)
 
 int64_t Partition::total(int n)
 {
-	return (0 <= n && n < f.size()) ? f[n] : INT64_MAX;
+	int k = f.size();
+	return (0 <= n && n < k) ? f[n] : INT64_MAX;
 }
 
 vector <int> nextel(vector <int> v)
@@ -172,7 +173,7 @@ vector <int> Partition::object_by_number(int n, int64_t k)
 		vector <int> kek;
 		return kek;
 	}
-	return all[k]; 
+	return all[int(k)]; 
 }
 
 bool Partition::prev(vector <int> & v)
@@ -240,7 +241,8 @@ vector <uint64_t> init_f()
 			{
 				j2 = 0;
 			}
-			res = res + pow(-1, q + 1)*(j1 + j2);
+			uint64_t bla = int(pow(-1, q + 1)*(j1 + j2));
+			res = res + bla;
 		}
 		if (res < f[f.size() - 1] || res > INT64_MAX)  // overflow
 		{
