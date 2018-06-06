@@ -4,6 +4,7 @@
 #include "combinatorial_object.h"
 class Permutation : public CombinatorialObject
 {
+	static vector <int64_t> f;  // number of Permutations
 public:
 	/// total number of objects of length n,
 	/// INT64_MAX if negative or overflow
