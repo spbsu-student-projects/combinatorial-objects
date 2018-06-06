@@ -89,7 +89,21 @@ bool is_valid (vector <int> const & v)
 
 int64_t DyckWord::total(int n)
 {
-    return (0 <= n  && n<(int)(f.size())) ? f[n][0] : INT64_MAX;
+    if (n>=71)
+    {
+        if (n%2==0)
+        {
+            return INT64_MAX;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    else
+    {
+       return (0 <= n  && n<(int)(f.size())) ? f[n][0] : INT64_MAX;
+    }
 }
 
 int64_t DyckWord::number_by_object (vector <int> const & v)
