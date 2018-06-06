@@ -10,6 +10,10 @@ string LeftFactors::name ()
 int64_t LeftFactors::total (int n)
 {
 	if (n > 0 && n < 67){
+	    if (n == 1){
+	    return 1;
+	    }
+	    n --;
 	    int k;
 	    k = n / 2;
 	    int ans = 1;
