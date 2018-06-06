@@ -117,19 +117,19 @@ vector <int> DyckWord::object_by_number (int n, int64_t k)
       {
             return vector <int> ();
       }
-      vector <int> ans;
+      vector <int> ans(n);
       int d=0;
       for (int i=0; i<n; i++)
       {
-            if (f[n-1-i][d+1]>=k)
+            if (f[n-1-i][d+1]>k)
             {
-                  ans.push_back(0);
+                  ans[i]=0;
                   d++;
             }
             else
             {
                   k-=f[n-1-i][d+1];
-                  ans.push_back(1);
+                  ans[i]=1;
                   d--;
             }
 
@@ -162,17 +162,17 @@ bool DyckWord::next(vector <int> & v)
 			close++;
 		}
 	}
-	ans.resize(k+1);
-	if (ans.size()==0)
+
+	if (k==-1)
 	{
 		unfixed=false;
-		for (int i=1;i<=open;i++)
+		for (int i=0;i<=open-1;i++)
 		{
-			ans.push_back(0);
+			ans[i]=0;
 		}
-		for (int i=1;i<=close-1;i++)
+		for (int i=0;i<=close-1;i++)
 		{
-			ans.push_back(1);
+			ans[i+open]=1;
 		}
 	}
 
@@ -270,7 +270,7 @@ vector <vector <int64_t>> init_f()
       int n;
       int d;
       f[0][0]=1;
-      if ((d>n)||(d<0)||(n<0))
+      if (((n==0) && (d>0))||(d<0)||(d>n))
       {
             f[n][d]=0;
       }
