@@ -1,3 +1,4 @@
+//Author: Konstantin Chelpanov chelpkostya@yandex.ru
 #include <algorithm>
 #include <cassert>
 #include "dyck_word.h"
