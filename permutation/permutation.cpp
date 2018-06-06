@@ -23,8 +23,6 @@ int64_t Fakt(int n)
 
 int64_t Permutation::total (int n)
 {
-	int i;
-	int64_t o;
 	if (n > 20) return INT64_MAX;
 	if (n < 0) return INT64_MAX;
 	return f[n];
