@@ -9,7 +9,7 @@ OEIS: [A000142](http://oeis.org/A000142).
 [MathWorld](http://mathworld.wolfram.com/Permutation.html),
 [Википедия](https://en.wikipedia.org/wiki/Permutation).
 
-Предподсчёт: нет.
+Предподсчёт: O(1).
 
 Функция `total`: O(n).
 
