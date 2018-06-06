@@ -271,10 +271,7 @@ vector <vector <int64_t>> init_f()
       int n;
       int d;
       f[0][0]=1;
-      if (((n==0) && (d>0))||(d<0)||(d>n))
-      {
-            f[n][d]=0;
-      }
+      
       for (n=1;n<=100;n++)
            for (d=0;d<=n;d++)
             {
