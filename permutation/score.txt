@@ -1,0 +1,27 @@
+readme.links     Павел Гранин
+total.ok         Павел Гранин
+total.poly       Павел Гранин
+total.opt
+total.corner     Павел Гранин
+generate.ok      Павел Гранин
+generate.opt     Павел Гранин
+generate.corner  Павел Гранин
+valid.ok         Павел Гранин
+valid.poly       Павел Гранин
+valid.opt        Павел Гранин
+number.ok        Павел Гранин
+number.poly      Павел Гранин
+number.opt
+number.corner    Павел Гранин
+object.ok        Павел Гранин
+object.poly      Павел Гранин
+object.opt
+object.corner    Павел Гранин
+prev.ok          Павел Гранин
+prev.poly        Павел Гранин
+prev.opt
+prev.corner      Павел Гранин
+next.ok          Павел Гранин
+next.poly        Павел Гранин
+next.opt
+next.corner      Павел Гранин
