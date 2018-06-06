@@ -241,8 +241,7 @@ vector <uint64_t> init_f()
 			{
 				j2 = 0;
 			}
-			uint64_t bla = int(pow(-1, q + 1)*(j1 + j2));
-			res = res + bla;
+			res = res + uint64_t(pow(-1, q + 1)*(j1 + j2));
 		}
 		if (res < f[f.size() - 1] || res > INT64_MAX)  // overflow
 		{
