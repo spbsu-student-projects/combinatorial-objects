@@ -70,16 +70,15 @@ vector <int> LabeledTree::object_by_number(int n, int64_t k){
 		return v;
 	}
 
-	vector <int> v;
-	v.push_back(0);
-	v.push_back(0);
+	vector <int> v(n);
+	v[0] = 0;
+	v[1] = 0;
 
-	int64_t NN = ndeg(n, n - 3);
-
-	while(NN){
-		v.push_back((k / NN) + 1);
-		k -= (k / NN) * NN;
-	 	NN = NN / n;
+	int i = n - 1;
+	while(i > 1){
+		v[i] = (k % n + 1);
+		k = (k - k % n) / n;
+		i--;
 	}
 
 	return v;
