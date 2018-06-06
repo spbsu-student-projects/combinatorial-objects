@@ -9,8 +9,8 @@ n-ое число Каталана равно количеству правил�
 
 Ссылки:
 
-[Wikipedia] https://en.wikipedia.org/wiki/Catalan_number
-[MathWorld] http://mathworld.wolfram.com/CatalanNumber.html
+[Wikipedia]https://en.wikipedia.org/wiki/Catalan_number
+[MathWorld]http://mathworld.wolfram.com/CatalanNumber.html
 
 Предподсчёт: O(N^2), N=70 - максимальное число, для которого N-ое число Каталана вмещается в int64_max.
 
