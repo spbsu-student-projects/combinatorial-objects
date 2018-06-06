@@ -1,0 +1,10 @@
+permutation
+permutation.exe
+Debug
+Release
+*.opensdf
+*.sdf
+*.suo
+.vs
+*.user
+*.filters
