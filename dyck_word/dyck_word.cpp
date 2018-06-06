@@ -109,7 +109,14 @@ int64_t DyckWord::number_by_object (vector <int> const & v)
                   d-=1;
             }
       }
-      return number;
+      if (number>=INT64_MAX)
+      {
+        return INT64_MAX;
+      }
+      else
+      {
+          return number;
+      }
 }
 
 vector <int> DyckWord::object_by_number (int n, int64_t k)
