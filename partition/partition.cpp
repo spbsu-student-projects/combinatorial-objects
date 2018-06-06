@@ -9,28 +9,6 @@ string Partition::name()
 	return "Partition";
 }
 
-bool is_valid(vector <int> const & v)
-{
-	auto n = (int)(v.size());
-	int sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		if (i > 0)
-		{
-			if (v[i] > v[i - 1])
-			{
-				return false;
-			}
-		}
-		sum = sum + v[i];
-	}
-	if (sum != n)
-	{
-		return false;
-	}
-	return true;
-}
-
 int64_t Partition::total(int n)
 {
 	int k = f.size();
@@ -155,7 +133,24 @@ vector <vector <int> > Partition::generate_all(int n)
 
 bool Partition::is_valid(vector <int> const & v)
 {
-	return ::is_valid(v);
+	auto n = (int)(v.size());
+	int sum = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (i > 0)
+		{
+			if (v[i] > v[i - 1])
+			{
+				return false;
+			}
+		}
+		sum = sum + v[i];
+	}
+	if (sum != n)
+	{
+		return false;
+	}
+	return true;
 }
 
 int64_t Partition::number_by_object(vector <int> const & v)
