@@ -277,7 +277,7 @@ vector <vector <int64_t>> init_f()
       for (n=1;n<=maxN;n++)
             for (d=0;d<=n;d++)
             {
-                  f[n][d]=f[n-1][d-1] + ((d == 0) ? 0 : f[n-1][d-1]);
+                  f[n][d]=f[n-1][d+1] + ((d == 0) ? 0 : f[n-1][d-1]);
             }
       return f;
 }
