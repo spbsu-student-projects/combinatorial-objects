@@ -2,6 +2,7 @@
 #include <cassert>
 #include "permutation.h"
 
+const int MIN_INREASONABLE_LENGTH = 21; 
 string Permutation::name ()
 {
 	return "Permutation";
@@ -14,7 +15,7 @@ int64_t min(int64_t a, int64_t b)
 
 int64_t Permutation::total (int n)
 {
-	if (n > 20) return INT64_MAX;
+	if (n >= MIN_INREASONABLE_LENGTH) return INT64_MAX;
 	if (n < 0) return INT64_MAX;
 	return f[n];
 }
@@ -85,7 +86,7 @@ int64_t Permutation::number_by_object (vector <int> const & v)
 	for (i = 1; i < n + 1; i++)
 	{
 		used[v[i-1]] = true;
-		for (int y = 1; y < v[i - 1]; y++) if (!used[y]) { if (o1 > INT64_MAX - f[min(n-i, 21)]) { return INT64_MAX; }  o1 = o1 + f[min(n-i, 21)]; }
+		for (int y = 1; y < v[i - 1]; y++) if (!used[y]) { if (o1 > INT64_MAX - f[min(n-i, MIN_INREASONABLE_LENGTH)]) { return INT64_MAX; }  o1 = o1 + f[min(n-i, MIN_INREASONABLE_LENGTH)]; }
 	}
 	return o1;
 }
@@ -102,7 +103,7 @@ vector <int> Permutation::object_by_number(int n, int64_t k)
 	for (i = 1; i < n + 1; i++)
 	{
 		t = 1;
-		for (y = 1; y < n + 1; y++) if ( (k >= f[min(n-i, 21)]) & (n-i < 21) ) { k = k - f[min(n-i, 21)]; t++; }
+		for (y = 1; y < n + 1; y++) if ( (k >= f[min(n-i, MIN_INREASONABLE_LENGTH)]) & (n-i < MIN_INREASONABLE_LENGTH) ) { k = k - f[min(n-i, MIN_INREASONABLE_LENGTH)]; t++; }
 		for (y = 1; y < n + 1; y++) { if (!used[y]) { t = t - 1; if (t == 0) break; } }
 		res.push_back(y);
 		used[y] = true;
@@ -115,7 +116,7 @@ bool Permutation::prev (vector <int> & v)
 	int64_t k = number_by_object (v);
 	auto n = (int) (v.size ());
 	int64_t o;
-	o = f[min(n, 21)];
+	o = f[min(n, MIN_INREASONABLE_LENGTH)];
 	k -= 1;
 	if (k == -1) { v = object_by_number(n, o-1); return false; }
 		v = object_by_number(n, k); return true;
@@ -127,7 +128,7 @@ bool Permutation::next (vector <int> & v)
 	auto n = (int) (v.size ());
 	k += 1;
 	int64_t o;
-	o = f[min(n, 21)];
+	o = f[min(n, MIN_INREASONABLE_LENGTH)];
 	if (k == o) { v = object_by_number(n, 0); return false; }
 	v = object_by_number(n, k); return true;
 }
