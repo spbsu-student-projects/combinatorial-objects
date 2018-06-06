@@ -4,22 +4,13 @@
 
 string Permutation::name ()
 {
-	return "Permutations";
+	return "Permutation";
 }
 
-
-
-int64_t Fakt(int n)
+int64_t min(int64_t a, int64_t b)
 {
-	int64_t o = 1;
-	int i;
-	if (n > 20) return INT64_MAX; else
-	{
-		for (i = 1; i < n + 1; i++) o = o * i;
-		return o;
-	}
+	if (a > b) return b; else return a;
 }
-
 
 int64_t Permutation::total (int n)
 {
@@ -94,7 +85,7 @@ int64_t Permutation::number_by_object (vector <int> const & v)
 	for (i = 1; i < n + 1; i++)
 	{
 		used[v[i-1]] = true;
-		for (int y = 1; y < v[i - 1]; y++) if (!used[y]) { if (o1 > INT64_MAX - Fakt(n-i) ) { return INT64_MAX; }  o1 = o1 + Fakt(n-i); }
+		for (int y = 1; y < v[i - 1]; y++) if (!used[y]) { if (o1 > INT64_MAX - f[min(n-i, 21)]) { return INT64_MAX; }  o1 = o1 + f[min(n-i, 21)]; }
 	}
 	return o1;
 }
@@ -105,13 +96,13 @@ vector <int> Permutation::object_by_number(int n, int64_t k)
 	int64_t o;
 	vector <int> res;
 	vector <bool> used(n + 1);
-	o = Fakt(n);
+	o = f[min(n, 21)];
 	for (i = 1; i < n + 1; i++) { used[i] = false; }
 	if (k < 0 || k > o - 1) return res;
 	for (i = 1; i < n + 1; i++)
 	{
 		t = 1;
-		for (y = 1; y < n + 1; y++) if ( (k >= Fakt(n-i) ) & (n-i < 21) ) { k = k - Fakt(n-i); t++; }
+		for (y = 1; y < n + 1; y++) if ( (k >= f[min(n-i, 21)]) & (n-i < 21) ) { k = k - f[min(n-i, 21)]; t++; }
 		for (y = 1; y < n + 1; y++) { if (!used[y]) { t = t - 1; if (t == 0) break; } }
 		res.push_back(y);
 		used[y] = true;
@@ -123,10 +114,8 @@ bool Permutation::prev (vector <int> & v)
 {
 	int64_t k = number_by_object (v);
 	auto n = (int) (v.size ());
-	int i;
 	int64_t o;
-	o = 1;
-	for (i = 1; i < n + 1; i++) o = o * i;
+	o = f[min(n, 21)];
 	k -= 1;
 	if (k == -1) { v = object_by_number(n, o-1); return false; }
 		v = object_by_number(n, k); return true;
@@ -137,10 +126,8 @@ bool Permutation::next (vector <int> & v)
 	int64_t k = number_by_object (v);
 	auto n = (int) (v.size ());
 	k += 1;
-	int i;
 	int64_t o;
-	o = 1;
-	for (i = 1; i < n + 1; i++) o = o * i;
+	o = f[min(n, 21)];
 	if (k == o) { v = object_by_number(n, 0); return false; }
 	v = object_by_number(n, k); return true;
 }
@@ -158,6 +145,7 @@ vector <int64_t> init_f()
 	f.push_back(1);
 	int i;
 	for (i = 1; i < 21; i++) { o = o * i; f.push_back(o); }
+	f.push_back(INT64_MAX);
 	return f;
 
 }
