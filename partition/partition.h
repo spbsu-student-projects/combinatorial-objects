@@ -19,8 +19,7 @@ public:
 	/// validity of given object
 	bool is_valid(vector<int> const& v);
 
-	/// 0-based lexicographical number of given valid object,
-	/// INT64_MAX if overflow
+	/// 0-based lexicographical number of given valid object
 	int64_t number_by_object(vector<int> const& v);
 
 	/// object of length n with given 0-based lexicographical number,
@@ -32,7 +31,7 @@ public:
 	bool prev(vector<int>& v);
 
 	/// transform valid object to lexicographically next object,
-	/// true if successful, falseif was last
+	/// true if successful, false if was last
 	bool next(vector<int>& v);
 
 	/// name of combinatorial object

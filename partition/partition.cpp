@@ -81,7 +81,6 @@ vector <int> prevel(vector <int> v)
 {
 	auto k = (int)(v.size());
 	int m = 0;
-	bool unfixed = true;
 	vector <int> ans = v;
 	for (int i = 1; i < k-1; i++)
 	{
@@ -123,6 +122,10 @@ vector <int> prevel(vector <int> v)
 vector <vector <int> > Partition::generate_all(int n)
 {
 	vector < vector <int> > all;
+	if (n < 0)
+	{
+		return all;
+	}
 	if (n == 0)
 	{
 		vector<int> kek(0);
@@ -164,6 +167,11 @@ int64_t Partition::number_by_object(vector <int> const & v)
 vector <int> Partition::object_by_number(int n, int64_t k)
 {
 	auto all = generate_all(n);
+	if (k<0 || k>=all.size())
+	{
+		vector <int> kek;
+		return kek;
+	}
 	return all[k]; 
 }
 
@@ -234,7 +242,7 @@ vector <uint64_t> init_f()
 			}
 			res = res + pow(-1, q + 1)*(j1 + j2);
 		}
-		if (res < f[f.size() - 1] | res > INT64_MAX)  // overflow
+		if (res < f[f.size() - 1] || res > INT64_MAX)  // overflow
 		{
 			return f;
 		}
