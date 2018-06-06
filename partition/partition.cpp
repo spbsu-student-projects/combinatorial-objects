@@ -236,7 +236,15 @@ vector <uint64_t> init_f()
 			{
 				j2 = 0;
 			}
-			res = res + uint64_t(pow(-1, q + 1)*(j1 + j2));
+			uint64_t bla = j1 + j2;
+			if (q % 2 == 1)
+			{
+				res = res + bla;
+			}
+			else
+			{
+				res = res - bla;
+			}
 		}
 		if (res < f[f.size() - 1] || res > INT64_MAX)  // overflow
 		{
