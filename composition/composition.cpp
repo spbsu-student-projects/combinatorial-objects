@@ -61,7 +61,7 @@ vector <vector <int>> Composition::generate_all(int n)
 		vector <vector <int>> all(total(n));
 		for (i = 0; i < n - 1; i++) all[0].push_back(0);
 		all[0].push_back(n);
-		for (i = 1; i < all.size(); i++)
+		for (i = 1; i < (int64_t) (all.size()); i++)
 		{
 			int p, cur;
 			all[i] = all[i - 1];

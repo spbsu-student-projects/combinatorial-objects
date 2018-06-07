@@ -1,0 +1,27 @@
+readme.links     Семён Шестаков
+total.ok         Семён Шестаков
+total.poly       Семён Шестаков
+total.opt        Семён Шестаков
+total.corner     Семён Шестаков
+generate.ok      Семён Шестаков
+generate.opt     Семён Шестаков
+generate.corner  Семён Шестаков
+valid.ok         Семён Шестаков
+valid.poly       Семён Шестаков
+valid.opt        Семён Шестаков
+number.ok        Семён Шестаков
+number.poly
+number.opt
+number.corner
+object.ok        Семён Шестаков
+object.poly
+object.opt
+object.corner    Семён Шестаков
+prev.ok          Семён Шестаков
+prev.poly
+prev.opt
+prev.corner      Семён Шестаков
+next.ok          Семён Шестаков
+next.poly
+next.opt
+next.corner      Семён Шестаков
