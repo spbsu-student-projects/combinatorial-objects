@@ -121,8 +121,6 @@ vector <int> Composition::object_by_number(int n, int64_t k)
 	{
 		vector <vector <int>> all(total(n));
 		all = generate_all(n);
-		int64_t c = 0;
-		while (c != k) c++;
 		return all[c];
 	}
 }
