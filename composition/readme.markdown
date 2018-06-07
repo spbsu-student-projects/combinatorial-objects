@@ -18,11 +18,11 @@ OEIS: [A001700](http://oeis.org/A001700).
 
 Функция `is_valid`: O(n).
 
-Функция `number_by_object`: O(generate_all(n) + total(n)).
+Функция `number_by_object`: O(n * total(n)).
 
-Функция `object_by_number`: O(generate_all(n)).
+Функция `object_by_number`: O(n * total(n)).
 
-Функция `prev`: O(number_by_object(n) + object_by_number(n)).
+Функция `prev`: O(n * total(n)).
 
-Функция `next`: O(number_by_object(n) + object_by_number(n)).
+Функция `next`: O(n * total(n)).
 
