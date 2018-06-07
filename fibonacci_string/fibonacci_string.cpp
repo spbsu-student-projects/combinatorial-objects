@@ -144,7 +144,7 @@ FibonacciString::~FibonacciString ()
 {
 }
 
-vector <int64_t> init_f ()
+static vector <int64_t> init_f ()
 {
 	vector <int64_t> f;
 	f.push_back (1);

@@ -15,7 +15,7 @@ int64_t Partition::total(int n)
 	return (0 <= n && n < k) ? f[n] : INT64_MAX;
 }
 
-vector <int> nextel(vector <int> v)
+static vector <int> nextel(vector <int> v)
 {
 	auto k = (int)(v.size());
 	int m;
@@ -56,7 +56,7 @@ vector <int> nextel(vector <int> v)
 	return ans;
 }
 
-vector <int> prevel(vector <int> v)
+static vector <int> prevel(vector <int> v)
 {
 	auto k = (int)(v.size());
 	int m = 0;
@@ -214,7 +214,7 @@ Partition::~Partition()
 {
 }
 
-vector <uint64_t> init_f()
+static vector <uint64_t> init_f()
 {
 	vector <uint64_t> f;
 	f.push_back(1);

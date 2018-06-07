@@ -1,0 +1,28 @@
+readme.links     Матвей Жуков
+total.ok         Матвей Жуков
+total.poly       Матвей Жуков
+total.opt        Матвей Жуков
+total.corner     Матвей Жуков
+generate.ok      Матвей Жуков
+generate.opt     Матвей Жуков
+generate.corner  Матвей Жуков
+valid.ok         Матвей Жуков
+valid.poly       Матвей Жуков
+valid.opt        Матвей Жуков
+valid.bug
+number.ok        Матвей Жуков
+number.poly
+number.opt
+number.corner
+object.ok        Матвей Жуков
+object.poly
+object.opt
+object.corner    Матвей Жуков
+prev.ok          Матвей Жуков
+prev.poly        Матвей Жуков
+prev.opt
+prev.corner
+next.ok          Матвей Жуков
+next.poly        Матвей Жуков
+next.opt
+next.corner
