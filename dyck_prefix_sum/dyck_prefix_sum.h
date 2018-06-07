@@ -1,10 +1,10 @@
 // Author: Olga Badazhkova (olgabadazhkova@mail.ru)
-#ifndef LEFT_FACTORS_H_
-#define LEFT_FACTORS_H_
+#ifndef DYCK_PREFIX_SUM_H_
+#define DYCK_PREFIX_SUM_H_
 #include "combinatorial_object.h"
-class LeftFactors : public CombinatorialObject
+class DyckPrefixSum : public CombinatorialObject
 {
-	static vector <vector <int64_t>> C;  // number of Left factors
+	static vector <vector <int64_t>> C;  // number of Dyck prefix sum
 
 public:
 	/// total number of objects of length n,
@@ -40,4 +40,4 @@ public:
 	/// destructor
 	~LeftFactors ();
 };
-#endif // LEFT_FACTORS_H_
+#endif // DYCK_PREFIX_SUM_H_
