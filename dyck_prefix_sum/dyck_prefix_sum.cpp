@@ -1,10 +1,10 @@
 // Author: Olga Badazhkova (olgabadazhkova@mail.ru)
 #include <cassert>
-#include "left_factors.h"
+#include "dyck_prefix_sum.h"
 
-string LeftFactors::name ()
+string DyckPrefixSum::name ()
 {
-	return "LeftFactors";
+	return "DyckPrefixSum";
 }
 
 int const maxN = 70;
@@ -21,9 +21,9 @@ vector <vector <int64_t>> init_f()
 	return c;
 }
 
-vector <vector <int64_t>> LeftFactors::C = init_f();
+vector <vector <int64_t>> DyckPrefixSum::C = init_f();
 
-int64_t LeftFactors::total (int n)
+int64_t DyckPrefixSum::total (int n)
 {
 	if (n > 0 && n < 67){
 		if (n == 1) {
@@ -45,7 +45,7 @@ int64_t LeftFactors::total (int n)
 }
 
 
-bool LeftFactors::is_valid (vector <int> const & v)
+bool DyckPrefixSum::is_valid (vector <int> const & v)
 {
 	auto n = (int) (v.size ());
 	if(v[0] != 0){
@@ -62,7 +62,7 @@ bool LeftFactors::is_valid (vector <int> const & v)
 	return true;
 }
 
-bool LeftFactors::next (vector <int> & v)
+bool DyckPrefixSum::next (vector <int> & v)
 {
 	auto n = (int) (v.size ());
     if(v[n - 1] == n - 1){
@@ -89,7 +89,7 @@ bool LeftFactors::next (vector <int> & v)
 	return true;
 }
 
-bool LeftFactors::prev (vector <int> & v)
+bool DyckPrefixSum::prev (vector <int> & v)
 {
 	auto n = (int) (v.size ());
 	vector <int> w(n);
@@ -121,7 +121,7 @@ bool LeftFactors::prev (vector <int> & v)
 	return true;
 }
 
-vector <vector <int> > LeftFactors::generate_all (int n)
+vector <vector <int> > DyckPrefixSum::generate_all (int n)
 {
 	vector <vector <int>> ans;
 	vector <int> v(n);
@@ -130,13 +130,13 @@ vector <vector <int> > LeftFactors::generate_all (int n)
 	    v[i] = 1 - v[i - 1];
 	}
 	ans.push_back(v);
-    while(LeftFactors::next(v)){
+    while(DyckPrefixSum::next(v)){
         ans.push_back(v);
     }
     return ans;
 }
 
-vector <int> LeftFactors::object_by_number (int n, int64_t k)
+vector <int> DyckPrefixSum::object_by_number (int n, int64_t k)
 {
 	vector <int> v(n);
 	v[0] = 0;
@@ -149,7 +149,7 @@ vector <int> LeftFactors::object_by_number (int n, int64_t k)
 	return v;
 }
 
-int64_t LeftFactors::number_by_object (vector <int> const & v)
+int64_t DyckPrefixSum::number_by_object (vector <int> const & v)
 {
 	auto n = (int) (v.size ());
 	vector <int> w(n);
@@ -165,7 +165,7 @@ int64_t LeftFactors::number_by_object (vector <int> const & v)
 	return ans;
 }
 
-LeftFactors::~LeftFactors ()
+DyckPrefixSum::~DyckPrefixSum ()
 {
 }
 
