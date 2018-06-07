@@ -129,6 +129,9 @@ bool DyckPrefixSum::prev (vector <int> & v)
 
 vector <vector <int> > DyckPrefixSum::generate_all (int n)
 {
+	if(n <= 0){
+	    return vector <vector <int>> ();
+	}
 	vector <vector <int>> ans;
 	vector <int> v(n);
 	v[0] = 0;
