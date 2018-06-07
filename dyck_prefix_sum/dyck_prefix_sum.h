@@ -38,6 +38,6 @@ public:
 	string name ();
 
 	/// destructor
-	~LeftFactors ();
+	~DyckPrefixSum ();
 };
 #endif // DYCK_PREFIX_SUM_H_
