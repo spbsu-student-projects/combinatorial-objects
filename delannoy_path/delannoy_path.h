@@ -28,7 +28,7 @@ public:
   virtual bool is_valid (vector <int> const & v);
 
   /// 0-based lexicographical number of given valid object,
-  /// INT64_MAX is number is overflow
+  /// INT64_MAX if number is overflow
   virtual int64_t number_by_object (vector <int> const & v);
 
   /// object of length n with given 0-based lexicographical number,
