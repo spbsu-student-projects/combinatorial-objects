@@ -29,6 +29,9 @@ static int64_t calc_dnk(int n, int k)
   if (n < 0 || k < 0)
     return 0;
 
+  if (n <= DelannoyPath::max_n && k <= DelannoyPath::max_n)
+    return DelannoyPath::dnk[n][k];
+
   for (int i = 0; i <= std::min(n, k); i++)
   {
     res = safe_add(res, safe_mult(c1, safe_mult(c2, p)));
@@ -80,44 +83,31 @@ int64_t DelannoyPath::total(int n)
   return dnk[n / 2][n / 2];
 }
 
-static vector<vector<int>> generate_all_nk(int n, int k)
+static void generate_all_nk(int n, int k, vector<vector<int>> & res, int ind)
 {
   if (n == 0 && k == 0)
-    return vector<vector<int>>({ vector<int>() });
-  
-  vector<vector<int>> res;
+    return;
   
   if (n >= 1)
   {
-    vector<vector<int>> subseq = generate_all_nk(n - 1, k);
-    for (auto & i : subseq)
-    {
-      i.insert(i.begin(), 1);
-      res.push_back(i);
-    }
+    for (int i = 0; i < calc_dnk(n - 1, k); i++)
+      res[(int)(ind + i)].push_back(1);
+    generate_all_nk(n - 1, k, res, ind);
   }
 
   if (k >= 1)
   {
-    vector<vector<int>> subseq = generate_all_nk(n, k - 1);
-    for (auto & i : subseq)
-    {
-      i.insert(i.begin(), 2);
-      res.push_back(i);
-    }
+    for (int i = 0; i < calc_dnk(n, k - 1); i++)
+      res[(int)(ind + calc_dnk(n - 1, k) + i)].push_back(2);
+    generate_all_nk(n, k - 1, res, (int)(ind + calc_dnk(n - 1, k)));
   }
 
   if (n >= 1 && k >= 1)
   {
-    vector<vector<int>> subseq = generate_all_nk(n - 1, k - 1);
-    for (auto & i : subseq)
-    {
-      i.insert(i.begin(), 3);
-      res.push_back(i);
-    }
+    for (int i = 0; i < calc_dnk(n - 1, k - 1); i++)
+      res[(int)(ind + calc_dnk(n - 1, k) + calc_dnk(n, k - 1) + i)].push_back(3);
+    generate_all_nk(n - 1, k - 1, res, (int)(ind + calc_dnk(n - 1, k) + calc_dnk(n, k - 1)));
   }
-
-  return res;
 }
 
 vector<vector<int>> DelannoyPath::generate_all(int n)
@@ -125,7 +115,9 @@ vector<vector<int>> DelannoyPath::generate_all(int n)
   if (n % 2 == 1 || n < 0)
     return vector<vector<int>>();
 
-  auto res = generate_all_nk(n / 2, n / 2);
+  vector<vector<int>> res((int)total(n));
+
+  generate_all_nk(n / 2, n / 2, res, 0);
   for (auto & i : res)
     while ((int)i.size() < n)
       i.push_back(0);
@@ -236,13 +228,19 @@ vector<int> DelannoyPath::object_by_number(int n, int64_t k)
 
 bool DelannoyPath::prev(vector<int>& v)
 {
+  static int last_zero = 0;
+
   int n = (int)v.size() / 2;
   int pos = (int)v.size() - 1;
   int cx = n, cy = n;
+
+  if ((int)v.size() > last_zero && v[last_zero] == 0)
+    pos = last_zero;
+
   while (pos >= 0)
   {
     if (v[pos] == 0)
-      pos--;
+      pos--, last_zero = pos;
     else if (v[pos] == 1)
       pos--, cx--;
     else if (v[pos] == 2)
@@ -282,9 +280,15 @@ bool DelannoyPath::prev(vector<int>& v)
 
 bool DelannoyPath::next(vector<int>& v)
 {
+  static int last_zero = 0;
+
   int n = (int)v.size() / 2;
   int pos = (int)v.size() - 1;
   int cx = n, cy = n;
+
+  if ((int)v.size() > last_zero && v[last_zero] == 0)
+    pos = last_zero;
+  
   while (pos >= 0)
   {
     if (v[pos] == 0)
