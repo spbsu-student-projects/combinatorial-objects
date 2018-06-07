@@ -1,4 +1,4 @@
-name = left_factors
+name = dyck_prefix_sum
 sources = $(name).cpp runner.cpp $(incpath)/combinatorial_object.cpp
 incpath = ../combinatorial_object
 headers = $(name).h $(incpath)/combinatorial_object.h
