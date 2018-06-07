@@ -147,6 +147,12 @@ vector <vector <int> > DyckPrefixSum::generate_all (int n)
 
 vector <int> DyckPrefixSum::object_by_number (int n, int64_t k)
 {
+	if(n < 1 || n > 67){
+		return vector <int> ();	
+	}
+	if(k + 1 > total(n)){
+		return vector <int> ();	
+	}
 	vector <int> v(n);
 	v[0] = 0;
 	for(int i = 1; i < n; i++){
