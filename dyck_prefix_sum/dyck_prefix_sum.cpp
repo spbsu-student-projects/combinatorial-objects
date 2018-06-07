@@ -115,8 +115,9 @@ bool DyckPrefixSum::prev (vector <int> & v)
                     v[j] = v[j - 1] + 1;
                 }
             }
+	    return true;
         }
-        return true;
+        
     }
 	return true;
 }
