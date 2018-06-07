@@ -121,7 +121,7 @@ vector <int> Composition::object_by_number(int n, int64_t k)
 	{
 		vector <vector <int>> all(total(n));
 		all = generate_all(n);
-		return all[c];
+		return all[k];
 	}
 }
 
