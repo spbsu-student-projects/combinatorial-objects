@@ -71,6 +71,10 @@ bool DyckPrefixSum::next (vector <int> & v)
 {
 	auto n = (int) (v.size ());
     if(v[n - 1] == n - 1){
+	v[0] = 0;
+	for(int i = 1; i < n; i++){
+		v[i] = 1 - v[i - 1];	
+	}
         return false;
     }
     if(v[n - 1] == v[n - 2] - 1){
