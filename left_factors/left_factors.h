@@ -4,7 +4,7 @@
 #include "combinatorial_object.h"
 class LeftFactors : public CombinatorialObject
 {
-	static vector <int64_t> f;  // number of Left factors
+	static vector <vector <int64_t>> C;  // number of Left factors
 
 public:
 	/// total number of objects of length n,
