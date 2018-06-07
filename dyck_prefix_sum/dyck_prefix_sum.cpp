@@ -25,7 +25,7 @@ vector <vector <int64_t>> DyckPrefixSum::C = init_f();
 
 int64_t DyckPrefixSum::total (int n)
 {
-	if (n > 0 && n < 67){
+	if (n > 0 && n < 68){
 		if (n == 1) {
 			return 1;
 		}
@@ -40,7 +40,12 @@ int64_t DyckPrefixSum::total (int n)
 	    return ans;
 	}
 	else{
+	    if(n <= 0){
+	    return 0;
+	    }
+	    else{
 	    return INT64_MAX;
+	    }
 	}
 }
 
