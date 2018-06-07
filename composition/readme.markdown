@@ -20,7 +20,7 @@ OEIS: [A001700](http://oeis.org/A001700).
 
 Функция `number_by_object`: O(generate_all(n) + total(n)).
 
-Функция `object_by_number`: O(generate_all(n) + total(n)).
+Функция `object_by_number`: O(generate_all(n)).
 
 Функция `prev`: O(number_by_object(n) + object_by_number(n)).
 
