@@ -86,6 +86,7 @@ bool LeftFactors::next (vector <int> & v)
 			return true;
         }
     }
+	return true;
 }
 
 bool LeftFactors::prev (vector <int> & v)
@@ -117,6 +118,7 @@ bool LeftFactors::prev (vector <int> & v)
         }
         return true;
     }
+	return true;
 }
 
 vector <vector <int> > LeftFactors::generate_all (int n)
@@ -141,9 +143,8 @@ vector <int> LeftFactors::object_by_number (int n, int64_t k)
 	for(int i = 1; i < n; i++){
 	    v[i] = 1 - v[i - 1];
 	}
-	bool l;
 	for(int64_t i = 0; i < k; i++){
-	    l = LeftFactors::next(v);
+	    next(v);
 	}
 	return v;
 }
@@ -156,10 +157,9 @@ int64_t LeftFactors::number_by_object (vector <int> const & v)
 	for (int i = 1; i < n; i++) {
 		w[i] = 1 - w[i - 1];
 	}
-	bool l;
 	int64_t ans = 0;
 	while (v != w) {
-		l = LeftFactors::next(w);
+		next(w);
 		ans++;
 	}
 	return ans;
