@@ -7,13 +7,13 @@
 OEIS: [A001850](https://oeis.org/A001850) (Central Delannoy numbers).
 
 Ссылки:
-[Википедия](https://en.wikipedia.org/wiki/Delannoy_number).
+[Википедия](https://en.wikipedia.org/wiki/Delannoy_number),
 [Mathworld](http://mathworld.wolfram.com/DelannoyNumber.html).
 
 Числа Деланнуа показывают количество выравниваний двух строк размера n и m (к примеру, нуклеотидных последовательностей).
 
 Предподсчёт: O(n^2), где n = MAXN = 26 * 2 &mdash; максимальное число,
-для которого число путей на n &times; n помещается в `int64_t`;
+для которого число путей на n &times; n помещается в `int64_t`.
 
 Функция `total`: O(1).
 
