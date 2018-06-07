@@ -7,19 +7,36 @@ string LeftFactors::name ()
 	return "LeftFactors";
 }
 
+int const maxN = 70;
+
+vector <vector <int64_t>> init_f()
+{
+	vector <vector <int64_t> > c(maxN, vector <int64_t>(maxN, 0));
+	for (int i = 0; i < maxN; i++)
+	{
+		c[i][0] = 1;
+		for (int j = 1; j <= i; j++)
+			c[i][j] = c[i - 1][j - 1] + c[i - 1][j];
+	}
+	return c;
+}
+
+vector <vector <int64_t>> LeftFactors::C = init_f();
+
 int64_t LeftFactors::total (int n)
 {
 	if (n > 0 && n < 67){
-	    if (n == 1){
-	    return 1;
-	    }
-	    n --;
+		if (n == 1) {
+			return 1;
+		}
+		n--;
 	    int k;
 	    k = n / 2;
-	    int ans = 1;
-	    for(int i=0;i<k;i++){
+	    int64_t ans = 1;
+	   /*or(int i=0;i<k;i++){
 	        ans = ans * (n - k + 1 + i) / (1 + i);
-	    }
+	    }*/
+		ans = C[n][k];
 	    return ans;
 	}
 	else{
@@ -125,7 +142,7 @@ vector <int> LeftFactors::object_by_number (int n, int64_t k)
 	    v[i] = 1 - v[i - 1];
 	}
 	bool l;
-	for(int i = 0; i < k; i++){
+	for(int64_t i = 0; i < k; i++){
 	    l = LeftFactors::next(v);
 	}
 	return v;
@@ -140,7 +157,7 @@ int64_t LeftFactors::number_by_object (vector <int> const & v)
 		w[i] = 1 - w[i - 1];
 	}
 	bool l;
-	int ans = 0;
+	int64_t ans = 0;
 	while (v != w) {
 		l = LeftFactors::next(w);
 		ans++;
@@ -151,3 +168,4 @@ int64_t LeftFactors::number_by_object (vector <int> const & v)
 LeftFactors::~LeftFactors ()
 {
 }
+
