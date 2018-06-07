@@ -40,7 +40,7 @@ int64_t DyckPrefixSum::total (int n)
 	    return ans;
 	}
 	else{
-	    if(n <= 0){
+	    if(n == 0){
 	    return 0;
 	    }
 	    else{
