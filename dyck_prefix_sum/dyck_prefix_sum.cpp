@@ -157,7 +157,7 @@ vector <int> DyckPrefixSum::object_by_number (int n, int64_t k)
 	if(n < 1 || n > 67){
 		return vector <int> ();	
 	}
-	if(k + 1 > total(n)){
+	if(k + 1 > total(n) || k < 0){
 		return vector <int> ();	
 	}
 	vector <int> v(n);
