@@ -1,0 +1,27 @@
+readme.links     Ольга Бадажкова
+total.ok         Ольга Бадажкова
+total.poly       Ольга Бадажкова
+total.opt        Ольга Бадажкова
+total.corner     Ольга Бадажкова
+generate.ok      Ольга Бадажкова
+generate.opt     Ольга Бадажкова
+generate.corner  Ольга Бадажкова
+valid.ok         Ольга Бадажкова
+valid.poly       Ольга Бадажкова
+valid.opt        Ольга Бадажкова
+number.ok        Ольга Бадажкова
+number.poly
+number.opt
+number.corner
+object.ok        Ольга Бадажкова
+object.poly
+object.opt
+object.corner    Ольга Бадажкова
+prev.ok          Ольга Бадажкова
+prev.poly        Ольга Бадажкова
+prev.opt         Ольга Бадажкова
+prev.corner      Ольга Бадажкова
+next.ok          Ольга Бадажкова
+next.poly        Ольга Бадажкова
+next.opt         Ольга Бадажкова
+next.corner      Ольга Бадажкова

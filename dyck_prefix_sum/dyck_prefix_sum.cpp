@@ -190,4 +190,3 @@ int64_t DyckPrefixSum::number_by_object (vector <int> const & v)
 DyckPrefixSum::~DyckPrefixSum ()
 {
 }
-
