@@ -1,0 +1,10 @@
+composition
+composition.exe
+Debug
+Release
+*.opensdf
+*.sdf
+*.suo
+.vs
+*.user
+*.filters
