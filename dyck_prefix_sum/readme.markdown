@@ -14,11 +14,11 @@ OEIS: [A001405](https://oeis.org/A001405).
 
 Функция `total`: O(1).
 
-Функция `generate_all`: O(n * n).
+Функция `generate_all`: O(n * total(n)).
 
 Функция `is_valid`: O(n).
 
-Функция `number_by_object`: O(n * k).
+Функция `number_by_object`: O(n * answer).
 
 Функция `object_by_number`: O(n * k).
 
