@@ -9,7 +9,7 @@ OEIS: [A001700](http://oeis.org/A001700).
 [Wikipedia](https://en.wikipedia.org/wiki/Stars_and_bars_(combinatorics)) - общее описание,
 [Wikipedia](https://en.wikipedia.org/wiki/Composition_(combinatorics)).
 
-Предподсчёт: O(n), где n = 31 &mdash; максимальное число,
+Предподсчёт: O(n), где n = 33 &mdash; максимальное число,
 для которого количество разбиений числа n на n неотрицательных слагаемых с учетом порядка помещается в `int64_t`.
 
 Функция `total`: O(1).
