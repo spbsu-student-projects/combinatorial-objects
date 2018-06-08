@@ -22,6 +22,8 @@ OEIS: [A000108](https://oeis.org/A000108) (Catalan numbers) &mdash; количе
 
 Предподсчёт: O(N^2), где N=70 &mdash; максимальное число, для которого N-ое число Каталана вмещается в `int64_t`.
 
+Функция `total`: O(1).
+
 Функция `generate_all`: O(n * answer).
 
 Функция `is_valid`: O(n).
