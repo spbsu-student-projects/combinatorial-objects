@@ -21,7 +21,7 @@ OEIS: [A000984](https://oeis.org/A000984).
 
 Функция `number_by_object`: O(n).
 
-Функция `object_by_number`: O(n * log n).
+Функция `object_by_number`: O(n).
 
 Функция `prev`: O(n).
 

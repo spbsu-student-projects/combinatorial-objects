@@ -36,7 +36,7 @@ int64_t YoungDiagram::total (int n)
 bool YoungDiagram::is_valid (vector <int> const & v)
 {
 	auto n = (int) (v.size ());
-	if (v[0] > n) return false;
+	if (v[0] > n || v[0] < 0) return false;
 	for (int i = 1; i < n; i++)
 	{
 		if (v[i] > v[i-1] || v[i] < 0)
@@ -70,16 +70,10 @@ vector <int> YoungDiagram::object_by_number (int n, int64_t k)
 	}
 	for (int i = 0; i < n; i++)
     {
-        int l = -1, r = n;
-        while (r - l > 1)
-        {
-            int m = (l + r) / 2;
-            if (k >= c[n+m-i][m]) l = m;
-            else r = m;
-        }
-        res[i] = r;
-        k -= (r == 0 ? 0: c[n+r-i-1][r-1]);
-        //cout << k << ' ' << r << endl;
+        int h = n;
+        while (h > 0 && c[n-i+h-1][h-1] > k) h--;
+        res[i] = h;
+        k -= (h == 0 ? 0: c[n+h-i-1][h-1]);
     }
 	assert (k == 0);
 	return res;
@@ -93,7 +87,7 @@ bool YoungDiagram::prev (vector <int> & v)
 	while (i > 0 && v[i] == 0) i--;
 	if (i == 0 && v[i] == 0)
     {
-        v = object_by_number(n, total(n)-1);
+        for (int j = 0; j < n; j++) v[j] = n;
         return false;
     }
 	v[i]--;
@@ -109,7 +103,7 @@ bool YoungDiagram::next (vector <int> & v)
 	while (i > 0 && v[i] == v[i-1]) i--;
 	if (i == 0 && v[0] >= n)
     {
-        v = object_by_number(n, 0);
+        for (int j = 0; j < n; j++) v[j] = 0;
         return false;
     }
     v[i]++;
