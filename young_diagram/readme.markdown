@@ -23,6 +23,6 @@ OEIS: [A000984](https://oeis.org/A000984).
 
 Функция `object_by_number`: O(n).
 
-Функция `prev`: O(n).
+Функция `prev`: O(log n), амортизированно за O(1).
 
-Функция `next`: O(n).
+Функция `next`: O(log n), амортизированно за O(1).
