@@ -36,6 +36,7 @@ int64_t YoungDiagram::total (int n)
 bool YoungDiagram::is_valid (vector <int> const & v)
 {
 	auto n = (int) (v.size ());
+	if (n == 0) return true;
 	if (v[0] > n || v[0] < 0) return false;
 	for (int i = 1; i < n; i++)
 	{
