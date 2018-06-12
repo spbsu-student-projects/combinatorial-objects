@@ -68,9 +68,9 @@ vector <int> YoungDiagram::object_by_number (int n, int64_t k)
 	{
 		return vector <int> ();
 	}
+    int h = n;
 	for (int i = 0; i < n; i++)
     {
-        int h = n;
         while (h > 0 && c[n-i+h-1][h-1] > k) h--;
         res[i] = h;
         k -= (h == 0 ? 0: c[n+h-i-1][h-1]);
