@@ -85,7 +85,6 @@ bool YoungDiagram::prev (vector <int> & v)
 	if (n == 0) return false;
 	int i = n-1;
 	while (i > 0 && v[i] == 0) i--;
-	if (i == 0 && v[i] == 0)
 	if (i == 0 && v[0] == 0)
     {
         for (int j = 0; j < n; j++) v[j] = n;
