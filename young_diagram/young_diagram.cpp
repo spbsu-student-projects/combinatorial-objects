@@ -83,20 +83,16 @@ bool YoungDiagram::prev (vector <int> & v)
 {
 	auto n = (int) (v.size ());
 	if (n == 0) return false;
-	int r = n, l = 0;
-	while (r - l > 1)
-    {
-        int m = (r + l) / 2;
-        if (v[m] == 0) r = m;
-        else l = m;
-    }
-	if (l == 0 && v[0] == 0)
+	int i = n-1;
+	while (i > 0 && v[i] == 0) i--;
+	if (i == 0 && v[i] == 0)
+	if (i == 0 && v[0] == 0)
     {
         for (int j = 0; j < n; j++) v[j] = n;
         return false;
     }
-	v[l]--;
-	for (int j = l+1; j < n; j++) v[j] = v[l];
+	v[i]--;
+	for (int j = i+1; j < n; j++) v[j] = v[i];
 	return true;
 }
 
@@ -104,20 +100,15 @@ bool YoungDiagram::next (vector <int> & v)
 {
 	auto n = (int) (v.size ());
 	if (n == 0) return false;
-	int r = n-1, l = -1;
-	while (r - l > 1)
-    {
-        int m = (r + l) / 2;
-        if (v[m] == v[n-1]) r = m;
-        else l = m;
-    }
-	if (r == 0 && v[0] >= n)
+	int i = n-1;
+	while (i > 0 && v[i] == v[i-1]) i--;
+	if (i == 0 && v[0] >= n)
     {
         for (int j = 0; j < n; j++) v[j] = 0;
         return false;
     }
-    v[r]++;
-    for (int j = r+1; j < n; j++) v[j] = 0;
+    v[i]++;
+    for (int j = i+1; j < n; j++) v[j] = 0;
     return true;
 }
 
