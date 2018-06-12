@@ -1,0 +1,27 @@
+readme.links     Дмитрий Ярцев
+total.ok         Дмитрий Ярцев
+total.poly       Дмитрий Ярцев
+total.opt        Дмитрий Ярцев
+total.corner     Дмитрий Ярцев
+generate.ok      Дмитрий Ярцев
+generate.opt     Дмитрий Ярцев
+generate.corner  Дмитрий Ярцев
+valid.ok         Дмитрий Ярцев
+valid.poly       Дмитрий Ярцев
+valid.opt        Дмитрий Ярцев
+number.ok        Дмитрий Ярцев
+number.poly      Дмитрий Ярцев
+number.opt       Дмитрий Ярцев
+number.corner
+object.ok        Дмитрий Ярцев
+object.poly      Дмитрий Ярцев
+object.opt       Дмитрий Ярцев
+object.corner    Дмитрий Ярцев
+prev.ok          Дмитрий Ярцев
+prev.poly        Дмитрий Ярцев
+prev.opt         Дмитрий Ярцев
+prev.corner      Дмитрий Ярцев
+next.ok          Дмитрий Ярцев
+next.poly        Дмитрий Ярцев
+next.opt         Дмитрий Ярцев
+next.corner      Дмитрий Ярцев
