@@ -1,4 +1,3 @@
-//Author: Matvei Zhukov (matzhukov2000@gmail.com)
 #include <algorithm>
 #include <cassert>
 #include <cmath>
@@ -13,6 +12,23 @@ int64_t Partition::total(int n)
 {
 	int k = f.size();
 	return (0 <= n && n < k) ? f[n] : INT64_MAX;
+}
+
+vector<int> first(int n) {
+	vector<int> ans(n);
+	for (int i = 0; i < n; i++) {
+		ans[i] = 1;
+	}
+	return ans;
+}
+
+vector<int> last(int n) {
+	vector<int> ans(n);
+	ans[0] = n;
+	for (int i = 1; i < n; i++) {
+		ans[i] = 0;
+	}
+	return ans;
 }
 
 static vector <int> nextel(vector <int> v)
@@ -61,7 +77,7 @@ static vector <int> prevel(vector <int> v)
 	auto k = (int)(v.size());
 	int m = 0;
 	vector <int> ans = v;
-	for (int i = 1; i < k-1; i++)
+	for (int i = 1; i < k - 1; i++)
 	{
 		if (ans[i] < ans[i - 1] && (ans[i] != 0 && ans[i + 1] != 0))
 		{
@@ -153,22 +169,57 @@ bool Partition::is_valid(vector <int> const & v)
 	return true;
 }
 
+uint64_t number(int n, int m) {
+	if (m == 0) {
+		if (n == 0) {
+			return 1;
+		}
+		return 0;
+	}
+	if (m > n) {
+		return number(n, n);
+	}
+	uint64_t a = number(n, m - 1) + number(n - m, m);
+	if (a > INT64_MAX) {
+		a = INT64_MAX;
+	}
+	return a;
+}
+
 int64_t Partition::number_by_object(vector <int> const & v)
 {
-	auto n = (int)(v.size());
-	auto all = generate_all(n);
-	return (int64_t)(std::find(begin(all), end(all), v) - begin(all));
+	int n = v.size();
+	int k = v[0];
+	if ((n == 1) || (k == 1)) {
+		return 0;
+	}
+	if (k == n) {
+		if (k >= 406) {
+			return INT64_MAX;
+		}
+		return total(n)-1;
+	}
+	vector<int> v1(n - k);
+	for (int i = 0; i < n - k; i++) {
+		v1[i] = v[i + 1];
+	}
+	uint64_t num1 = number(n, k-1);
+	uint64_t num2 = number_by_object(v1);
+	if (num1+num2>= 9223372036854775806){
+		return 9223372036854775807;
+	}
+	return num1 + num2;
 }
 
 vector <int> Partition::object_by_number(int n, int64_t k)
 {
 	auto all = generate_all(n);
-	if (k<0 || k>=int64_t(all.size()))
+	if (k<0 || k >= int64_t(all.size()))
 	{
 		vector <int> kek;
 		return kek;
 	}
-	return all[int(k)]; 
+	return all[int(k)];
 }
 
 bool Partition::prev(vector <int> & v)
@@ -181,13 +232,9 @@ bool Partition::prev(vector <int> & v)
 	else
 	{
 		size_t size = k;
-		vector <int> first(size);
-		for (int i = 0; i < k; i++)
+		if (v[v.size()-1] == 1)
 		{
-			first[i] = 1;
-		}
-		if (v == first)
-		{
+			v = last(k);
 			return false;
 		}
 		v = nextel(v);
@@ -204,6 +251,7 @@ bool Partition::next(vector <int> & v)
 	}
 	else if (v[0] == n)
 	{
+		v = first(n);
 		return false;
 	}
 	v = prevel(v);
