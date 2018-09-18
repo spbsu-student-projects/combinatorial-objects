@@ -58,7 +58,7 @@ static vector<vector<uint64_t>> init_h() {
 	h0.push_back(1);
 	h.push_back(h0);
 	int p = 1;
-	while (p < 406) {
+	while (p < 21) {
 		for (int i = 0; i < p; i++) {
 			for (int j = i + 1; j <= p; j++) {
 				h[i].push_back(h[i][i]);
@@ -81,8 +81,11 @@ uint64_t Partition::hbig(pair<int, int> p) {
 	if (p.second > p.first) {
 		return hbig(make_pair(p.first, p.first));
 	}
-	if (p.second < 406) {
+	if (p.first < 21) {
 		return h[p.first][p.second];
+	}
+	if (p.second == 0) {
+		return 0;
 	}
 	if (mp[p]) {
 		return mp[p];
@@ -90,8 +93,10 @@ uint64_t Partition::hbig(pair<int, int> p) {
 	uint64_t a = hbig(make_pair(p.first - p.second, p.second));
 	uint64_t b = hbig(make_pair(p.first, p.second - 1));
 	if ((a == INT64_MAX) || (b == INT64_MAX)) {
+		mp[p] = INT64_MAX;
 		return INT64_MAX;
 	}
+	mp[p] = a + b;
 	return mp[p];
 }
 
