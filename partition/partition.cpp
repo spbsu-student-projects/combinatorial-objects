@@ -1,7 +1,99 @@
+//Author: Matvei Zhukov (matzhukov2000@gmail.com)
+
 #include <algorithm>
 #include <cassert>
 #include <cmath>
 #include "partition.h"
+#include <map>
+
+using namespace std;
+
+map <pair<int, int>, uint64_t> mp;
+
+static vector <uint64_t> init_f()
+{
+	vector <uint64_t> f;
+	f.push_back(1);
+	while (true)
+	{
+		int s = f.size();
+		uint64_t res = 0;
+		for (int q = 1; (3 * q*q - q) / 2 <= s; q++)
+		{
+			int a = s - (3 * q*q - q) / 2;
+			int b = s - (3 * q*q + q) / 2;
+			uint64_t j1 = f[a];
+			uint64_t j2;
+			if (b >= 0)
+			{
+				j2 = f[b];
+			}
+			else
+			{
+				j2 = 0;
+			}
+			uint64_t bla = j1 + j2;
+			if (q % 2 == 1)
+			{
+				res = res + bla;
+			}
+			else
+			{
+				res = res - bla;
+			}
+		}
+		if (res < f[f.size() - 1] || res > INT64_MAX)  // overflow
+		{
+			return f;
+		}
+		f.push_back(res);
+	}
+}
+
+vector <uint64_t> Partition::f = init_f();
+
+static vector<vector<uint64_t>> init_h() {
+	vector<vector<uint64_t>> h;
+	vector<uint64_t> h0;
+	h0.push_back(1);
+	h.push_back(h0);
+	int p = 1;
+	while (p < 406) {
+		for (int i = 0; i < p; i++) {
+			for (int j = i + 1; j <= p; j++) {
+				h[i].push_back(h[i][i]);
+			}
+		}
+		vector<uint64_t> h1 = h0;
+		h1[0] = 0;
+		for (int i = 1; i <= p; i++) {
+			h1.push_back(h1[i - 1] + h[p - i][i]);
+		}
+		h.push_back(h1);
+		p++;
+	}
+	return h;
+}
+
+vector<vector<uint64_t>> Partition::h = init_h();
+
+uint64_t Partition::hbig(pair<int, int> p) {
+	if (p.second > p.first) {
+		return hbig(make_pair(p.first, p.first));
+	}
+	if (p.second < 406) {
+		return h[p.first][p.second];
+	}
+	if (mp[p]) {
+		return mp[p];
+	}
+	uint64_t a = hbig(make_pair(p.first - p.second, p.second));
+	uint64_t b = hbig(make_pair(p.first, p.second - 1));
+	if ((a == INT64_MAX) || (b == INT64_MAX)) {
+		return INT64_MAX;
+	}
+	return mp[p];
+}
 
 string Partition::name()
 {
@@ -169,23 +261,6 @@ bool Partition::is_valid(vector <int> const & v)
 	return true;
 }
 
-uint64_t number(int n, int m) {
-	if (m == 0) {
-		if (n == 0) {
-			return 1;
-		}
-		return 0;
-	}
-	if (m > n) {
-		return number(n, n);
-	}
-	uint64_t a = number(n, m - 1) + number(n - m, m);
-	if (a > INT64_MAX) {
-		a = INT64_MAX;
-	}
-	return a;
-}
-
 int64_t Partition::number_by_object(vector <int> const & v)
 {
 	int n = v.size();
@@ -199,16 +274,16 @@ int64_t Partition::number_by_object(vector <int> const & v)
 		}
 		return total(n)-1;
 	}
-	vector<int> v1(n - k);
+	vector <int> v1(n-k);
 	for (int i = 0; i < n - k; i++) {
 		v1[i] = v[i + 1];
 	}
-	uint64_t num1 = number(n, k-1);
-	uint64_t num2 = number_by_object(v1);
-	if (num1+num2>= 9223372036854775806){
-		return 9223372036854775807;
+	uint64_t a = hbig(make_pair(n, k - 1));
+	uint64_t b = number_by_object(v1);
+	if ((a == INT64_MAX) || (b == INT64_MAX)) {
+		return INT64_MAX;
 	}
-	return num1 + num2;
+	return a+b;
 }
 
 vector <int> Partition::object_by_number(int n, int64_t k)
@@ -261,45 +336,3 @@ bool Partition::next(vector <int> & v)
 Partition::~Partition()
 {
 }
-
-static vector <uint64_t> init_f()
-{
-	vector <uint64_t> f;
-	f.push_back(1);
-	while (true)
-	{
-		int s = f.size();
-		uint64_t res = 0;
-		for (int q = 1; (3 * q*q - q) / 2 <= s; q++)
-		{
-			int a = s - (3 * q*q - q) / 2;
-			int b = s - (3 * q*q + q) / 2;
-			uint64_t j1 = f[a];
-			uint64_t j2;
-			if (b >= 0)
-			{
-				j2 = f[b];
-			}
-			else
-			{
-				j2 = 0;
-			}
-			uint64_t bla = j1 + j2;
-			if (q % 2 == 1)
-			{
-				res = res + bla;
-			}
-			else
-			{
-				res = res - bla;
-			}
-		}
-		if (res < f[f.size() - 1] || res > INT64_MAX)  // overflow
-		{
-			return f;
-		}
-		f.push_back(res);
-	}
-}
-
-vector <uint64_t> Partition::f = init_f();

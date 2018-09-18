@@ -2,10 +2,14 @@
 #ifndef PARTITION_H_
 #define PARTITION_H_
 #include "combinatorial_object.h"
+
+using std::pair;
+using std::make_pair;
+
 class Partition : public CombinatorialObject
 {
 	static vector <uint64_t> f;  // number of partitions
-
+	static vector<vector<uint64_t>> h;  //number of partitons with parts smaller than k and n < 405
 public:
 
 	/// total number of objects of length n,
@@ -40,5 +44,8 @@ public:
 
 	/// destructor
 	~Partition();
+
+	///number of partitons with parts smaller than k
+	uint64_t hbig(pair<int, int> p); 
 };
 #endif // PARTITION_H_
