@@ -293,13 +293,39 @@ int64_t Partition::number_by_object(vector <int> const & v)
 
 vector <int> Partition::object_by_number(int n, int64_t k)
 {
-	auto all = generate_all(n);
-	if (k<0 || k >= int64_t(all.size()))
-	{
+	if ((k < 0) || (k > hbig(make_pair(n, n))-1)) {
 		vector <int> kek;
 		return kek;
 	}
-	return all[int(k)];
+	if (k == 0) {
+		vector<int> h(n);
+		for (int i = 0; i < n; i++) {
+			h[i] = 1;
+		}
+		return h;
+	}
+	vector<int> h;
+	int left_side = 2; 
+	while (k>hbig(make_pair(n,left_side))-1) {
+		left_side++;
+	}
+	if (left_side == n) {
+		h.push_back(left_side);
+		for (int i = 1; i < n; i++) {
+			h.push_back(0);
+		}
+		return h;
+	}
+	vector<int> h0;
+	for (int i = 0; i < left_side - 1; i++) {
+		h0.push_back(0);
+	}
+	h.push_back(left_side);
+	int64_t s = hbig(make_pair(n, left_side - 1));
+	vector<int> t = object_by_number(n - left_side, k - s);
+	h.insert(h.end(), t.begin(), t.end());
+	h.insert(h.end(), h0.begin(), h0.end());
+	return h;
 }
 
 bool Partition::prev(vector <int> & v)
