@@ -269,6 +269,9 @@ bool Partition::is_valid(vector <int> const & v)
 int64_t Partition::number_by_object(vector <int> const & v)
 {
 	int n = v.size();
+	if (n == 0){
+	    return 0;
+	}
 	int k = v[0];
 	if ((n == 1) || (k == 1)) {
 		return 0;
@@ -293,7 +296,7 @@ int64_t Partition::number_by_object(vector <int> const & v)
 
 vector <int> Partition::object_by_number(int n, int64_t k)
 {
-	if ((k < 0) || (k > hbig(make_pair(n, n))-1)) {
+	if ((k < 0) || ((uint64_t)k > hbig(make_pair(n, n))-1)) {
 		vector <int> kek;
 		return kek;
 	}
@@ -305,8 +308,8 @@ vector <int> Partition::object_by_number(int n, int64_t k)
 		return h;
 	}
 	vector<int> h;
-	int left_side = 2; 
-	while (k>hbig(make_pair(n,left_side))-1) {
+	int left_side = 2;
+	while ((uint64_t)k > hbig(make_pair(n,left_side))-1) {
 		left_side++;
 	}
 	if (left_side == n) {
@@ -337,7 +340,6 @@ bool Partition::prev(vector <int> & v)
 	}
 	else
 	{
-		size_t size = k;
 		if (v[v.size()-1] == 1)
 		{
 			v = last(k);
