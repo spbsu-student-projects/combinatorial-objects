@@ -7,7 +7,7 @@ generate.ok      Иван Казменко
 generate.opt
 generate.corner
 valid.ok         Иван Казменко
-valid.bug
+valid.bug        Матвей Жуков
 valid.poly       Иван Казменко
 valid.opt
 number.ok        Иван Казменко
