@@ -1,5 +1,4 @@
 Представление n в виде суммы положительных слагаемых.
-
 Автор: Матвей Жуков.
 
 OEIS: [A000041](https://oeis.org/A000041) Number of partitions of n (the partition numbers).
@@ -19,9 +18,9 @@ OEIS: [A000041](https://oeis.org/A000041) Number of partitions of n (the partiti
 
 Функция `is_valid`: O(n).
 
-Функция `number_by_object`: O(n * total(n)).
+Функция `number_by_object`: O(n^3).
 
-Функция `object_by_number`: O(n * total(n)).
+Функция `object_by_number`: O(n^4).
 
 Функция `prev`: O(n).
 

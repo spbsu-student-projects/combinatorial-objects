@@ -11,8 +11,14 @@ string LyndonWord::name ()
 bool is_valid (vector <int> const & v)
 {
 	auto n = (int) (v.size ());
+	if ((v[0] < 0) || (v[0] > 1)) {
+		return false;
+	}
 	for (int i = 1; i < n; i++)
 	{
+		if ((v[i] < 0) || (v[i] > 1)) {
+			return false;
+		}
 		vector <int> checker (n);
 		for (int j = 0; j < n; j++)
 		{
